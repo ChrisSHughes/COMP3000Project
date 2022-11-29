@@ -16,6 +16,7 @@ public class PlacerTest : MonoBehaviour
     public Grid grid;
     public XRRayInteractor rayInteractor;
     public InputActionAsset inputAction;
+    public GameObject SelectedBuilding;
 
     private InputAction selectCell;
 
@@ -49,6 +50,7 @@ public class PlacerTest : MonoBehaviour
     private void PlaceCubeNear(Vector3 hitPoint)
     {
         var finalPosition = grid.GetNearestPointOnGrid(hitPoint);
-        GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = finalPosition;
+        GameObject.Instantiate(SelectedBuilding).transform.position = finalPosition;
+        //GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = finalPosition;
     }
 }
