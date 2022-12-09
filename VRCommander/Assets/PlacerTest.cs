@@ -16,7 +16,8 @@ public class PlacerTest : MonoBehaviour
     public Grid grid;
     public XRRayInteractor rayInteractor;
     public InputActionAsset inputAction;
-    public GameObject SelectedBuilding;
+    public GameObject selectedBuilding;
+    public GameObject ghostedSelectedBuilding;
 
     private InputAction selectCell;
 
@@ -28,6 +29,8 @@ public class PlacerTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ghostedSelectedBuilding = selectedBuilding;
+
         selectCell = inputAction.FindActionMap("XRI " + targetController.ToString() + " Interaction").FindAction("Activate");
         selectCell.Enable();
         selectCell.performed += OnSelectCell;
@@ -36,7 +39,19 @@ public class PlacerTest : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        
+        OnHoverCell();
+    }
+
+    public void OnHoverCell()
+    {
+        if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hit))
+        {
+            ShowGhost(hit.point);
+        }
+        else
+        {
+            ghostedSelectedBuilding.SetActive(false);
+        }
     }
 
     public void OnSelectCell(InputAction.CallbackContext context)
@@ -50,7 +65,14 @@ public class PlacerTest : MonoBehaviour
     private void PlaceCubeNear(Vector3 hitPoint)
     {
         var finalPosition = grid.GetNearestPointOnGrid(hitPoint);
-        GameObject.Instantiate(SelectedBuilding).transform.position = finalPosition;
+        GameObject.Instantiate(selectedBuilding).transform.position = finalPosition;
         //GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = finalPosition;
+    }
+
+    private void ShowGhost(Vector3 hitpoint)
+    {
+        ghostedSelectedBuilding.SetActive(true);
+        var finalPosition = grid.GetNearestPointOnGrid(hitpoint);
+        ghostedSelectedBuilding.transform.position = finalPosition;
     }
 }

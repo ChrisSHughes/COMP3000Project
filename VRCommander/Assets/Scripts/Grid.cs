@@ -5,6 +5,13 @@ using UnityEngine;
 public class Grid : MonoBehaviour
 {
     public float size = 2f;
+    public GameObject node;
+    public List<GameObject> coOrds = new List<GameObject>();
+
+    public void Start()
+    {
+        DrawGridNodes();
+    }
 
     public Vector3 GetNearestPointOnGrid(Vector3 position)
     {
@@ -18,6 +25,23 @@ public class Grid : MonoBehaviour
 
         result += transform.position;
         return result ;
+    }
+
+    public void DrawGridNodes()
+    {
+
+        for (float x = 0; x < 200; x += size)
+        {
+            Debug.Log("x = " + x);
+            for (float z = 0; z < 200; z += size)
+            {
+                Debug.Log("z = " + z);
+                node = Instantiate(node,new Vector3(x + 1, 0f, z + 1), Quaternion.identity);
+                node.name = "x: " + x + ", z: " + z;
+                coOrds.Add(node);
+                node.transform.SetParent(transform);
+            }
+        }
     }
 
     private void OnDrawGizmos()

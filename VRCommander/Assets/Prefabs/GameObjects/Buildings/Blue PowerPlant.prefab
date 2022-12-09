@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 757608896584371906}
   m_Layer: 0
   m_Name: Blue PowerPlant
-  m_TagString: Untagged
+  m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2175,7 +2175,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7433
+  m_VersionIndex: 7439
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4459,7 +4459,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9336
+  m_VersionIndex: 9342
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
