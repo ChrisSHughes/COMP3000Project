@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
-    public float size = 2f;
-    public GameObject node;
-    //public List<GameObject> coOrds = new List<GameObject>();
+    public float size = 0;
+    public int cells = 0;
+    //public GameObject node;
+    public List<GameObject> coOrds = new List<GameObject>();
 
-    public Dictionary<Vector2, bool> dictCoords = new Dictionary<Vector2, bool>();
+    public Dictionary<Vector2, GameObject> dictCoords = new Dictionary<Vector2, GameObject>();
 
-    public (int, int, bool) TupleCoords = (0, 0, false);
     
 
     public void Start()
     {
+        size = GetComponent<Grid>().size;
         DrawGridNodes();
-        foreach(KeyValuePair<Vector2, bool> pair in dictCoords)
+        foreach(KeyValuePair<Vector2, GameObject> pair in dictCoords)
         {
             Debug.Log("coord: " + pair.Key + " taken? = " + pair.Value);
         }
@@ -39,10 +40,10 @@ public class Grid : MonoBehaviour
     public void DrawGridNodes()
     {
 
-        for (float x = 0; x < 200; x += size)
+        for (float x = 0; x < 100; x += size)
         {
             //Debug.Log("x = " + x);
-            for (float z = 0; z < 200; z += size)
+            for (float z = 0; z < 100; z += size)
             {
                 //Debug.Log("z = " + z);
                 //node = Instantiate(node,new Vector3(x + 1, 0f, z + 1), Quaternion.identity);
@@ -51,21 +52,22 @@ public class Grid : MonoBehaviour
                 //node.transform.SetParent(transform);
 
                 Vector2 coord = new Vector2(x, z);
-                dictCoords.Add(coord, false);
+                dictCoords.Add(coord, null);
+                cells++;
             }
         }
     }
 
     private void OnDrawGizmos()
     {
-        //Gizmos.color = Color.magenta;
-        //for(float x = 0; x < 200; x += size)
-        //{
-        //    for(float z = 0; z < 200; z += size)
-        //    {
-        //        var point = GetNearestPointOnGrid(new Vector3(x, 0f, z));
-        //        Gizmos.DrawSphere(point, 0.5f);
-        //    }
-        //}
+        Gizmos.color = Color.magenta;
+        for (float x = 0; x < 100; x += size)
+        {
+            for (float z = 0; z < 100; z += size)
+            {
+                var point = GetNearestPointOnGrid(new Vector3(x, 0f, z));
+                Gizmos.DrawSphere(point, 0.25f);
+            }
+        }
     }
 }

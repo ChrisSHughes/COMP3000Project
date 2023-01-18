@@ -52,22 +52,22 @@ public class TeleportationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!teleportIsActive)
+        if (!teleportIsActive) // if the teleport is NOT active then return, do not continue the update
         {
             return;
         }
 
-        if (!rayInteractor.enabled)
+        if (!rayInteractor.enabled)  // if the ray is NOT enabled just return, do not continue the update
         {
             return;
         }
 
-        if (thumbstick.triggered)
+        if (thumbstick.triggered) // if the thumbstick is moved
         {
             return;
         }
 
-        if(!rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hit))
+        if(!rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hit)) // if the ray isn't hitting anything, don't continue to render the ray
         {
             
             rayInteractor.enabled = false;

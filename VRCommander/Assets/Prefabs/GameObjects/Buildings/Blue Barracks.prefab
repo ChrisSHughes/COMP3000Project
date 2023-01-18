@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4020201935056346418}
   - component: {fileID: 4020201935056346419}
+  - component: {fileID: 1138054230}
   m_Layer: 0
   m_Name: Blue Barracks
   m_TagString: Structure
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4020201935056346416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -23.91, y: 0, z: 0.17}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4020201936438283048}
@@ -45,8 +46,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.8410335, y: 1, z: 5.889452}
-  m_Center: {x: 0.9901984, y: 0, z: -0.011107445}
+  m_Size: {x: 6.5, y: 0.5, z: 5}
+  m_Center: {x: 1.25, y: 0.5, z: 0}
+--- !u!65 &1138054230
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4020201935056346416}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.5, y: 0.5, z: 1.9}
+  m_Center: {x: 1.19, y: -0.18, z: 0}
 --- !u!1 &4020201936438283049
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +458,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 14140
+  m_VersionIndex: 14143
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

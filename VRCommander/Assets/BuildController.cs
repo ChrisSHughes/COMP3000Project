@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class PlacerTest : MonoBehaviour
+public class BuildController : MonoBehaviour
 {
     public enum Controller
     {
@@ -16,8 +16,10 @@ public class PlacerTest : MonoBehaviour
     public Grid grid;
     public XRRayInteractor rayInteractor;
     public InputActionAsset inputAction;
+
     public GameObject selectedBuilding;
     public GameObject ghostedSelectedBuilding;
+    bool GhostActive = false;
 
     private InputAction selectCell;
 
@@ -29,8 +31,7 @@ public class PlacerTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ghostedSelectedBuilding = selectedBuilding;
-
+        
         selectCell = inputAction.FindActionMap("XRI " + targetController.ToString() + " Interaction").FindAction("Activate");
         selectCell.Enable();
         selectCell.performed += OnSelectCell;
@@ -58,6 +59,7 @@ public class PlacerTest : MonoBehaviour
     {
         if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hit))
         {
+            
             PlaceCubeNear(hit.point);
         }
     }
@@ -65,14 +67,27 @@ public class PlacerTest : MonoBehaviour
     private void PlaceCubeNear(Vector3 hitPoint)
     {
         var finalPosition = grid.GetNearestPointOnGrid(hitPoint);
-        GameObject.Instantiate(selectedBuilding).transform.position = finalPosition;
+
+        if (selectedBuilding.GetComponent<StructureController>() != null)
+        {
+            Debug.Log("SCRIPT EXISTS");
+            Instantiate(selectedBuilding).transform.position = finalPosition;
+
+        }
+
         //GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = finalPosition;
+
+        //building size needs to have a vec2 for size. when entering into the dictionary enter X x y dimenstions. 
+        
     }
 
     private void ShowGhost(Vector3 hitpoint)
     {
+        Debug.Log("hit a thing with hover");
         ghostedSelectedBuilding.SetActive(true);
         var finalPosition = grid.GetNearestPointOnGrid(hitpoint);
         ghostedSelectedBuilding.transform.position = finalPosition;
+
+        // check dictionary for current vec location - if it has a building, no buildy.
     }
 }
