@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1467692955394835152}
   - component: {fileID: 1829809546543935344}
   - component: {fileID: 1887390866931543018}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Barracks Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 4107095701025957519}
   - component: {fileID: 4107095701025957518}
   - component: {fileID: 874075313}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Red Barracks
   m_TagString: Structure
   m_Icon: {fileID: 0}
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 4107095701808050408}
   - component: {fileID: 4107095701808050327}
   - component: {fileID: 4107095701808050326}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Barracks Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +653,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 14146
+  m_VersionIndex: 14149
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

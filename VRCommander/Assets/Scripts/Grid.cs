@@ -6,10 +6,9 @@ public class Grid : MonoBehaviour
 {
     public float size = 0;
     public int cells = 0;
-    //public GameObject node;
     public List<GameObject> coOrds = new List<GameObject>();
 
-    public Dictionary<Vector2, GameObject> dictCoords = new Dictionary<Vector2, GameObject>();
+    public Dictionary<Vector3, GameObject> dictCoords = new Dictionary<Vector3, GameObject>();
 
     
 
@@ -17,10 +16,6 @@ public class Grid : MonoBehaviour
     {
         size = GetComponent<Grid>().size;
         DrawGridNodes();
-        foreach(KeyValuePair<Vector2, GameObject> pair in dictCoords)
-        {
-            Debug.Log("coord: " + pair.Key + " taken? = " + pair.Value);
-        }
     }
 
     public Vector3 GetNearestPointOnGrid(Vector3 position)
@@ -45,12 +40,6 @@ public class Grid : MonoBehaviour
             //Debug.Log("x = " + x);
             for (float z = 0; z < 100; z += size)
             {
-                //Debug.Log("z = " + z);
-                //node = Instantiate(node,new Vector3(x + 1, 0f, z + 1), Quaternion.identity);
-                //node.name = "x: " + x + ", z: " + z;
-                //coOrds.Add(node);
-                //node.transform.SetParent(transform);
-
                 Vector2 coord = new Vector2(x, z);
                 dictCoords.Add(coord, null);
                 cells++;

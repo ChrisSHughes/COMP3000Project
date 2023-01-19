@@ -59,8 +59,11 @@ public class BuildController : MonoBehaviour
     {
         if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hit))
         {
-            
-            PlaceCubeNear(hit.point);
+            if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            {
+                Debug.Log("hit layer of ground");
+                PlaceCubeNear(hit.point);
+            }
         }
     }
 
@@ -71,7 +74,38 @@ public class BuildController : MonoBehaviour
         if (selectedBuilding.GetComponent<StructureController>() != null)
         {
             Debug.Log("SCRIPT EXISTS");
-            Instantiate(selectedBuilding).transform.position = finalPosition;
+            GameObject currentBuilding;
+            currentBuilding = Instantiate(selectedBuilding);
+            currentBuilding.transform.position = finalPosition;
+            StructureController structCon = selectedBuilding.GetComponent<StructureController>();
+
+            structCon.origin = finalPosition;
+            currentBuilding.SetActive(true);
+
+            grid.dictCoords[finalPosition] = currentBuilding;
+            Vector3 tile;
+            for (int x = 0; x < structCon.sizex; x++)
+            {
+                for (int z = 0; z < structCon.sizez; z++)
+                {
+                    tile = new Vector3(finalPosition.x + x, finalPosition.y, finalPosition.z - z);
+                    Debug.Log("tile " + tile);
+                    grid.dictCoords[tile] = currentBuilding;
+
+                    GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    cube.transform.position = tile;
+                    cube.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                }
+            }
+
+            foreach (KeyValuePair<Vector3, GameObject> pair in grid.dictCoords) // pair is variable for both parts of dict. you cna use pair.key and pair.value to change things respectively.
+            {
+                if (pair.Value != null)
+                {
+                    Debug.Log("coord: " + pair.Key + " taken? = " + pair.Value);
+
+                }
+            }
 
         }
 
@@ -83,10 +117,10 @@ public class BuildController : MonoBehaviour
 
     private void ShowGhost(Vector3 hitpoint)
     {
-        Debug.Log("hit a thing with hover");
-        ghostedSelectedBuilding.SetActive(true);
+        //Debug.Log("hit a thing with hover");
         var finalPosition = grid.GetNearestPointOnGrid(hitpoint);
         ghostedSelectedBuilding.transform.position = finalPosition;
+        ghostedSelectedBuilding.SetActive(true);
 
         // check dictionary for current vec location - if it has a building, no buildy.
     }

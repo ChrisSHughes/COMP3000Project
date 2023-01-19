@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class StructureController : MonoBehaviour
 {
-    public float origin;
+    public Vector3 origin;
     public float sizex;
-    public float sizey;
+    public float sizez;
+
+    int maxHealth = 0;
+    int health = 0;
+
+    bool repairing = false;
+
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

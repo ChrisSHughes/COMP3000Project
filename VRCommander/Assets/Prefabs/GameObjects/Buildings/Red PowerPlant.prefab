@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6184736985157715221}
   - component: {fileID: 6184736985157715218}
   - component: {fileID: 6184736985157715219}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chimney
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2188,7 +2188,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9351
+  m_VersionIndex: 9369
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2302,7 +2302,7 @@ GameObject:
   - component: {fileID: 6184736985419431957}
   - component: {fileID: 6184736985419431954}
   - component: {fileID: 6184736985419431955}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Power Plant building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4417,7 +4417,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7448
+  m_VersionIndex: 7466
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4524,13 +4524,13 @@ GameObject:
   - component: {fileID: 6184736985654817843}
   - component: {fileID: 6184736985654817840}
   - component: {fileID: 1573541625}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Red PowerPlant
   m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6184736985654817843
 Transform:
   m_ObjectHideFlags: 0
@@ -4572,6 +4572,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f54d277f3d11744997835da55ce78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origin: 0
+  origin: {x: 40, y: 0, z: 7}
   sizex: 2
-  sizey: 2
+  sizez: 2
