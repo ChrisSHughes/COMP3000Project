@@ -19,7 +19,9 @@ public class BuildController : MonoBehaviour
 
     public GameObject selectedBuilding;
     public GameObject ghostedSelectedBuilding;
+
     bool GhostActive = false;
+    bool isBuilding = false;
 
     private InputAction selectCell;
 
@@ -35,6 +37,7 @@ public class BuildController : MonoBehaviour
         selectCell = inputAction.FindActionMap("XRI " + targetController.ToString() + " Interaction").FindAction("Activate");
         selectCell.Enable();
         selectCell.performed += OnSelectCell;
+        ghostedSelectedBuilding = Instantiate(ghostedSelectedBuilding);
     }
 
     // Update is called once per frame
@@ -47,11 +50,14 @@ public class BuildController : MonoBehaviour
     {
         if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hit))
         {
-            ShowGhost(hit.point);
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            {
+                ShowGhost(hit.point);
+            }
         }
         else
         {
-            ghostedSelectedBuilding.SetActive(false);
+            HideGhost();
         }
     }
 
@@ -108,10 +114,6 @@ public class BuildController : MonoBehaviour
             }
 
         }
-
-        //GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = finalPosition;
-
-        //building size needs to have a vec2 for size. when entering into the dictionary enter X x y dimenstions. 
         
     }
 
@@ -123,5 +125,10 @@ public class BuildController : MonoBehaviour
         ghostedSelectedBuilding.SetActive(true);
 
         // check dictionary for current vec location - if it has a building, no buildy.
+    }
+
+    private void HideGhost()
+    {
+        ghostedSelectedBuilding.SetActive(false);
     }
 }

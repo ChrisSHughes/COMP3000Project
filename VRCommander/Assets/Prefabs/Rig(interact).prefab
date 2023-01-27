@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 738609260}
   - component: {fileID: 738609259}
   - component: {fileID: 738609258}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right Ray Interacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
