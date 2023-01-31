@@ -19,9 +19,11 @@ public class BuildController : MonoBehaviour
 
     public GameObject selectedBuilding;
     public GameObject ghostedSelectedBuilding;
+    Vector3 lastPos;
 
     bool GhostActive = false;
     bool isBuilding = false;
+    bool buildable = false;
 
     private InputAction selectCell;
 
@@ -52,23 +54,38 @@ public class BuildController : MonoBehaviour
         {
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
-                ShowGhost(hit.point);
+                Vector3 finalPosition = grid.GetNearestPointOnGrid(hit.point);
+                ghostedSelectedBuilding.transform.position = finalPosition;
+
+                if(CheckValid(finalPosition) == true)
+                {
+                    ShowGhost(hit.point);
+                    buildable = true;
+                }
+                else
+                {
+                    HideGhost();
+                    buildable = false;
+                }
             }
         }
         else
         {
             HideGhost();
+            buildable = false;
         }
     }
 
     public void OnSelectCell(InputAction.CallbackContext context)
     {
-        if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hit))
+        if (buildable == true)
         {
-            if(hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hit))
             {
-                Debug.Log("hit layer of ground");
-                PlaceCubeNear(hit.point);
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+                {
+                    PlaceCubeNear(hit.point);
+                }
             }
         }
     }
@@ -114,14 +131,56 @@ public class BuildController : MonoBehaviour
             }
 
         }
-        
+    }
+
+
+    public bool CheckValid(Vector3 finalPos)
+    {
+        StructureController structCon = selectedBuilding.GetComponent<StructureController>();
+        bool valid = true;
+        foreach(KeyValuePair<Vector3, GameObject> pair in grid.dictCoords)
+        {
+            if (pair.Key.Equals(finalPos))
+            {
+                if(pair.Value != null)
+                {
+                    valid = false;
+                    return valid;
+                }
+            }
+        }
+
+        for (int x = 0; x < structCon.sizex; x++)
+        {
+            for (int z = 0; z < structCon.sizez; z++)
+            {
+                Vector3 tile = new Vector3(finalPos.x + x, finalPos.y, finalPos.z - z);
+
+                foreach (KeyValuePair<Vector3, GameObject> pair in grid.dictCoords)
+                {
+                    if (pair.Key.Equals(tile))
+                    {
+                        if (pair.Value != null)
+                        {
+                            valid = false;
+                            return valid;
+                        }
+                        else
+                        {
+                            valid = false;
+                            return valid;
+                        }
+                    }
+                }
+            }
+        }
+
+        return valid;
     }
 
     private void ShowGhost(Vector3 hitpoint)
     {
         //Debug.Log("hit a thing with hover");
-        var finalPosition = grid.GetNearestPointOnGrid(hitpoint);
-        ghostedSelectedBuilding.transform.position = finalPosition;
         ghostedSelectedBuilding.SetActive(true);
 
         // check dictionary for current vec location - if it has a building, no buildy.

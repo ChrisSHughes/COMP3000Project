@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 757608896584371905}
   - component: {fileID: 757608896584371906}
+  - component: {fileID: 1100264288}
   m_Layer: 8
   m_Name: Blue PowerPlant
   m_TagString: Structure
@@ -46,6 +47,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.8420706, y: 0.75, z: 7.951623}
   m_Center: {x: 0.97158575, y: 0.38, z: -1.0182734}
+--- !u!114 &1100264288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757608896584371907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f54d277f3d11744997835da55ce78f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  origin: {x: 0, y: 0, z: 0}
+  sizex: 2
+  sizez: 2
 --- !u!1 &757608896752777955
 GameObject:
   m_ObjectHideFlags: 0
@@ -2175,7 +2191,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7445
+  m_VersionIndex: 7454
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4459,7 +4475,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9348
+  m_VersionIndex: 9357
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4515,7 +4531,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: 03c88edf4dff2544d9e72bccf56ecd6d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
