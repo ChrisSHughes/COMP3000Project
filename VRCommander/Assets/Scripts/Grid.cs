@@ -40,7 +40,7 @@ public class Grid : MonoBehaviour
             //Debug.Log("x = " + x);
             for (float z = 0; z < 100; z += size)
             {
-                Vector2 coord = new Vector2(x, z);
+                Vector3 coord = new Vector3(x, 0, z);
                 dictCoords.Add(coord, null);
                 cells++;
             }

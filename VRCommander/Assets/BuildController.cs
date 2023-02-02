@@ -138,39 +138,33 @@ public class BuildController : MonoBehaviour
     {
         StructureController structCon = selectedBuilding.GetComponent<StructureController>();
         bool valid = true;
-        foreach(KeyValuePair<Vector3, GameObject> pair in grid.dictCoords)
-        {
-            if (pair.Key.Equals(finalPos))
-            {
-                if(pair.Value != null)
-                {
-                    valid = false;
-                    return valid;
-                }
-            }
-        }
 
         for (int x = 0; x < structCon.sizex; x++)
         {
             for (int z = 0; z < structCon.sizez; z++)
             {
+                bool coordsFound = false;
+
                 Vector3 tile = new Vector3(finalPos.x + x, finalPos.y, finalPos.z - z);
 
                 foreach (KeyValuePair<Vector3, GameObject> pair in grid.dictCoords)
                 {
                     if (pair.Key.Equals(tile))
                     {
+                        coordsFound = true;
+
                         if (pair.Value != null)
                         {
                             valid = false;
                             return valid;
                         }
-                        else
-                        {
-                            valid = false;
-                            return valid;
-                        }
                     }
+                }
+
+                if (!coordsFound)
+                {
+                    valid = false;
+                    return valid;
                 }
             }
         }

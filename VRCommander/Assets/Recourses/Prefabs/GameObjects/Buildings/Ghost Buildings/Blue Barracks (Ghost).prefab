@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4404538993271126748}
   - component: {fileID: 2956625315726636183}
   - component: {fileID: 2379545000699581022}
-  - component: {fileID: 2717693493523322514}
   m_Layer: 8
   m_Name: Barracks Door
   m_TagString: Untagged
@@ -181,20 +180,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4178086096293323525}
   m_Mesh: {fileID: 0}
---- !u!64 &2717693493523322514
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4178086096293323525}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &8840337902812691795
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +193,6 @@ GameObject:
   - component: {fileID: 8840337902812691758}
   - component: {fileID: 8840337902812691759}
   - component: {fileID: 8840337902812691792}
-  - component: {fileID: 8840337902812691793}
   m_Layer: 8
   m_Name: Barracks Building
   m_TagString: Untagged
@@ -592,7 +576,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 14161
+  m_VersionIndex: 14164
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -674,20 +658,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8840337902812691795}
   m_Mesh: {fileID: 0}
---- !u!64 &8840337902812691793
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8840337902812691795}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &8840337904119098186
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,9 +667,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8840337904119098184}
-  - component: {fileID: 8840337904119098185}
-  - component: {fileID: 5577022181738209836}
-  - component: {fileID: 5425473449274430872}
   m_Layer: 8
   m_Name: Blue Barracks (Ghost)
   m_TagString: Structure
@@ -724,44 +691,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8840337904119098185
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8840337904119098186}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.5, y: 0.5, z: 5}
-  m_Center: {x: 1.25, y: 0.5, z: 0}
---- !u!65 &5577022181738209836
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8840337904119098186}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.5, y: 0.5, z: 1.9}
-  m_Center: {x: 1.19, y: -0.18, z: 0}
---- !u!114 &5425473449274430872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8840337904119098186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60f54d277f3d11744997835da55ce78f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  origin: {x: 0, y: 0, z: 0}
-  sizex: 2
-  sizez: 1

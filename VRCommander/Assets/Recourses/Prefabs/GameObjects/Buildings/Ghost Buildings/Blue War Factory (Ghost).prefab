@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1213990662285748494}
   - component: {fileID: 1213990662285748489}
   - component: {fileID: 1213990662285748488}
-  - component: {fileID: 1213990662285748491}
   m_Layer: 8
   m_Name: Main Doorframe
   m_TagString: Untagged
@@ -491,7 +490,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6454
+  m_VersionIndex: 6457
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -573,20 +572,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213990662285748485}
   m_Mesh: {fileID: 0}
---- !u!64 &1213990662285748491
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213990662285748485}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &1213990662523725017
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,7 +585,6 @@ GameObject:
   - component: {fileID: 1213990662523724994}
   - component: {fileID: 1213990662523725021}
   - component: {fileID: 1213990662523725020}
-  - component: {fileID: 1213990662523725022}
   m_Layer: 8
   m_Name: War Factory Building
   m_TagString: Untagged
@@ -1004,7 +988,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 14950
+  m_VersionIndex: 14953
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1086,19 +1070,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213990662523725017}
   m_Mesh: {fileID: 0}
---- !u!65 &1213990662523725022
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213990662523725017}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 1.9743632, z: 3}
-  m_Center: {x: 0, y: 0.2371816, z: 0}
 --- !u!1 &1213990662742262419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,7 +1083,6 @@ GameObject:
   - component: {fileID: 1213990662742262420}
   - component: {fileID: 1213990662742262423}
   - component: {fileID: 1213990662742262422}
-  - component: {fileID: 1213990662742262417}
   m_Layer: 8
   m_Name: MainDoor
   m_TagString: Untagged
@@ -1347,7 +1317,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4576
+  m_VersionIndex: 4579
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1429,20 +1399,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213990662742262419}
   m_Mesh: {fileID: 0}
---- !u!64 &1213990662742262417
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213990662742262419}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &1213990663009901298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,7 +1412,6 @@ GameObject:
   - component: {fileID: 1213990663009901303}
   - component: {fileID: 1213990663009901302}
   - component: {fileID: 1213990663009901297}
-  - component: {fileID: 1213990663009901296}
   m_Layer: 8
   m_Name: Blast Door Left
   m_TagString: Untagged
@@ -1982,7 +1937,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 12222
+  m_VersionIndex: 12225
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2064,20 +2019,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213990663009901298}
   m_Mesh: {fileID: 0}
---- !u!64 &1213990663009901296
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213990663009901298}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &1213990663016920658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,7 +2032,6 @@ GameObject:
   - component: {fileID: 1213990663016920663}
   - component: {fileID: 1213990663016920662}
   - component: {fileID: 1213990663016920657}
-  - component: {fileID: 1213990663016920656}
   m_Layer: 8
   m_Name: Blast Door Right
   m_TagString: Untagged
@@ -2617,7 +2557,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 13355
+  m_VersionIndex: 13358
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2699,20 +2639,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213990663016920658}
   m_Mesh: {fileID: 0}
---- !u!64 &1213990663016920656
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213990663016920658}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &1773049830961196167
 GameObject:
   m_ObjectHideFlags: 0
@@ -2722,8 +2648,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6053799865144776176}
-  - component: {fileID: 2557730300351742138}
-  - component: {fileID: 2109642383261094586}
   m_Layer: 8
   m_Name: Blue War Factory (Ghost)
   m_TagString: Structure
@@ -2747,31 +2671,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2557730300351742138
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1773049830961196167}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 8.5, y: 0.5, z: 6}
-  m_Center: {x: 2, y: 0.5, z: -1}
---- !u!114 &2109642383261094586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1773049830961196167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60f54d277f3d11744997835da55ce78f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  origin: {x: 0, y: 0, z: 0}
-  sizex: 3
-  sizez: 2

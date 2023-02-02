@@ -11,6 +11,9 @@ public class StructureController : MonoBehaviour
     int maxHealth = 0;
     int health = 0;
 
+    int techLevelRequired;
+    int techLevel;
+
     bool repairing = false;
 
 
