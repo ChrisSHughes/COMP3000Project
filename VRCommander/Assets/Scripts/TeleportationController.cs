@@ -41,6 +41,7 @@ public class TeleportationController : MonoBehaviour
         teleportCancel.performed += OnTeleportCancel; // same as above, but for cancel
 
         thumbstick = inputAction.FindActionMap("XRI " + targetController.ToString() + " Locomotion").FindAction("Move");
+        
     }
 
     private void OnDestroy()

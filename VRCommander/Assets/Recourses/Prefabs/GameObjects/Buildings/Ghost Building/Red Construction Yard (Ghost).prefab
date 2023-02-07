@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 6587796565229440020}
   - component: {fileID: 5089132128174540474}
   m_Layer: 7
-  m_Name: Red ConstructionYard (Ghost)
+  m_Name: Red Construction Yard (Ghost)
   m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

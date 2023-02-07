@@ -19,13 +19,13 @@ public class BuildController : MonoBehaviour
 
     public GameObject selectedBuilding;
     public GameObject ghostedSelectedBuilding;
-    Vector3 lastPos;
 
     bool GhostActive = false;
-    bool isBuilding = false;
+    public bool isBuilding = false;
     bool buildable = false;
 
     private InputAction selectCell;
+    public StructureDatabase structureDatabase;
 
     private void Awake()
     {
@@ -39,13 +39,15 @@ public class BuildController : MonoBehaviour
         selectCell = inputAction.FindActionMap("XRI " + targetController.ToString() + " Interaction").FindAction("Activate");
         selectCell.Enable();
         selectCell.performed += OnSelectCell;
-        ghostedSelectedBuilding = Instantiate(ghostedSelectedBuilding);
     }
 
     // Update is called once per frame
     private void Update()
     {
-        OnHoverCell();
+        if (isBuilding == true)
+        {
+            OnHoverCell();
+        }
     }
 
     public void OnHoverCell()
@@ -54,16 +56,19 @@ public class BuildController : MonoBehaviour
         {
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
+                Debug.Log("hitting ground");
                 Vector3 finalPosition = grid.GetNearestPointOnGrid(hit.point);
                 ghostedSelectedBuilding.transform.position = finalPosition;
 
                 if(CheckValid(finalPosition) == true)
                 {
+                    Debug.Log("Valid placement");
                     ShowGhost(hit.point);
                     buildable = true;
                 }
                 else
                 {
+                    Debug.Log("Not Valid 1");
                     HideGhost();
                     buildable = false;
                 }
@@ -71,6 +76,7 @@ public class BuildController : MonoBehaviour
         }
         else
         {
+            Debug.Log("Not Valid 2");
             HideGhost();
             buildable = false;
         }
@@ -78,13 +84,14 @@ public class BuildController : MonoBehaviour
 
     public void OnSelectCell(InputAction.CallbackContext context)
     {
-        if (buildable == true)
+        if ((buildable == true) && (isBuilding == true))
         {
             if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hit))
             {
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
                 {
                     PlaceCubeNear(hit.point);
+                    isBuilding = false;
                 }
             }
         }
@@ -183,5 +190,14 @@ public class BuildController : MonoBehaviour
     private void HideGhost()
     {
         ghostedSelectedBuilding.SetActive(false);
+    }
+
+    public void SetBuilding(int building)
+    {
+        isBuilding = true;
+        Destroy(ghostedSelectedBuilding);
+        Destroy(selectedBuilding);
+        selectedBuilding = structureDatabase.blueStructures2[building];
+        ghostedSelectedBuilding = Instantiate(structureDatabase.ghostBlueStructures2[building]);
     }
 }

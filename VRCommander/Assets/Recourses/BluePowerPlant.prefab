@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 757608896584371906}
   - component: {fileID: 1100264288}
   m_Layer: 8
-  m_Name: Blue PowerPlant
+  m_Name: BluePowerPlant
   m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
