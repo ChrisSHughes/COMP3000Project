@@ -7,6 +7,11 @@ public class UIController : MonoBehaviour
 
     public BuildController buildController;
 
+    public void SetConstructionYard()
+    {
+        Debug.Log("Construction Yard Set");
+        buildController.SetBuilding(1);
+    }
 
     public void SetPowerPlant()
     {
@@ -25,4 +30,5 @@ public class UIController : MonoBehaviour
         Debug.Log("War Factory Set");
         buildController.SetBuilding(4);
     }
+
 }

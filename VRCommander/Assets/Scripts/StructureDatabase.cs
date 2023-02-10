@@ -7,14 +7,10 @@ public class StructureDatabase : MonoBehaviour
 
     public List<Structure> redStructures = new List<Structure>();
     public List<Structure> blueStructures = new List<Structure>();
-    
-    public List<GameObject> redStructures2 = new List<GameObject>();
-    public List<GameObject> blueStructures2 = new List<GameObject>();
 
     public List<Structure> ghostRedStructures = new List<Structure>();
     public List<Structure> ghostBlueStructures = new List<Structure>();
 
-    public List<GameObject> ghostBlueStructures2 = new List<GameObject>();
 
 
     public void Awake()
@@ -24,14 +20,20 @@ public class StructureDatabase : MonoBehaviour
         BuildRedGhostStructureList();
         BuildBlueGhostStructureList();
 
+
+        Debug.Log("Red Structure List");
         for (int i = 0; i < blueStructures.Count; i++)
         {
-
-            Debug.Log("red stuff");
-            Debug.Log(redStructures[i].id + " , " + redStructures[i].name + " , " + redStructures[i].building);
-            Debug.Log("blue stuff");
-            Debug.Log(blueStructures[i].id + " , " + blueStructures[i].name + " , " + blueStructures[i].building);
+            Debug.Log("Building index: " + redStructures[i].id + " , " + redStructures[i].name + " , " + redStructures[i].building);
         }
+        
+        Debug.Log("Blue Structure List");
+        for (int i = 0; i < blueStructures.Count; i++)
+        {
+            Debug.Log("Building index: " + blueStructures[i].id + " , " + blueStructures[i].name + " , " + blueStructures[i].building);
+        }
+
+
     }
 
     public void BuildRedStructureList()
@@ -59,7 +61,7 @@ public class StructureDatabase : MonoBehaviour
 
             new Structure(1, "Construction Yard",Resources.Load<GameObject>("Prefabs/GameObjects/Buildings/Solid Building/Blue Construction Yard")),
 
-            new Structure(2, "Power Plant",Resources.Load<GameObject>("BluePowerPlant")),
+            new Structure(2, "Power Plant",Instantiate(Resources.Load<GameObject>("BluePowerPlant"))),
 
             new Structure(3, "Barracks",Resources.Load<GameObject>("Prefabs/GameObjects/Buildings/Solid Building/Blue Barracks")),
 

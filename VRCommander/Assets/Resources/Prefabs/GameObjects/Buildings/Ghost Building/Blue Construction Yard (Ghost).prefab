@@ -6783,7 +6783,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3539046080356652105}
   m_Layer: 8
-  m_Name: Blue ConstructionYard (Ghost)
+  m_Name: Blue Construction Yard (Ghost)
   m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

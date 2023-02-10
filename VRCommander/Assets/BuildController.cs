@@ -122,9 +122,10 @@ public class BuildController : MonoBehaviour
                     Debug.Log("tile " + tile);
                     grid.dictCoords[tile] = currentBuilding;
 
-                    GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    cube.transform.position = tile;
-                    cube.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                    // debugging for spawning a cube in each used tile.
+                    //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    //cube.transform.position = tile;
+                    //cube.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 }
             }
 
@@ -197,7 +198,7 @@ public class BuildController : MonoBehaviour
         isBuilding = true;
         Destroy(ghostedSelectedBuilding);
         Destroy(selectedBuilding);
-        selectedBuilding = structureDatabase.blueStructures2[building];
-        ghostedSelectedBuilding = Instantiate(structureDatabase.ghostBlueStructures2[building]);
+        selectedBuilding = structureDatabase.blueStructures[building].building;
+        ghostedSelectedBuilding = Instantiate(structureDatabase.ghostBlueStructures[building].building);
     }
 }
