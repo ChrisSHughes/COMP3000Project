@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4020201935056346418}
-  - component: {fileID: 4020201935056346419}
   - component: {fileID: 1138054230}
   - component: {fileID: 1616892070}
+  - component: {fileID: 4020201935294630168}
   m_Layer: 8
   m_Name: Blue Barracks
   m_TagString: Structure
@@ -36,19 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4020201935056346419
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4020201935056346416}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.5, y: 0.5, z: 5}
-  m_Center: {x: 1.25, y: 0.5, z: 0}
 --- !u!65 &1138054230
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60,8 +47,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.5, y: 0.5, z: 1.9}
-  m_Center: {x: 1.19, y: -0.18, z: 0}
+  m_Size: {x: 3.5, y: 1.10255, z: 2.728203}
+  m_Center: {x: 1.19, y: 0.3688575, z: -0.9022385}
 --- !u!114 &1616892070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +64,22 @@ MonoBehaviour:
   origin: {x: 0, y: 0, z: 0}
   sizex: 2
   sizez: 1
+--- !u!208 &4020201935294630168
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4020201935056346416}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.795, y: 0.44, z: 1.38}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 1.19, y: 0.3688575, z: -0.9022385}
+  m_TimeToStationary: 0.5
 --- !u!1 &4020201936438283049
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,8 +109,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4020201936438283049}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.98740077, y: 0.33072406, z: -0.0069437027}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.98740077, y: 0.33072406, z: -0.887002}
+  m_LocalScale: {x: 1.05, y: 1.2909466, z: 1.4416}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4020201935056346418}
@@ -474,7 +477,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 14158
+  m_VersionIndex: 14179
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -599,8 +602,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8403183690785510783}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.98740077, y: 0.33072406, z: -0.0069437027}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.98740077, y: 0.33072406, z: -0.887002}
+  m_LocalScale: {x: 1.05, y: 1.2909466, z: 1.4416}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4020201935056346418}
@@ -669,7 +672,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 14137
+  m_VersionIndex: 14140
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
