@@ -27,15 +27,10 @@ public class BuildController : MonoBehaviour
     private InputAction selectCell;
     public StructureDatabase structureDatabase;
 
-    private void Awake()
-    {
-        grid = FindObjectOfType<Grid>();
-
-    }
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        
+        Debug.Log("Building Controller enabled");
         selectCell = inputAction.FindActionMap("XRI " + targetController.ToString() + " Interaction").FindAction("Activate");
         selectCell.Enable();
         selectCell.performed += OnSelectCell;
@@ -197,7 +192,6 @@ public class BuildController : MonoBehaviour
     {
         isBuilding = true;
         Destroy(ghostedSelectedBuilding);
-        Destroy(selectedBuilding);
         selectedBuilding = structureDatabase.blueStructures[building].building;
         ghostedSelectedBuilding = Instantiate(structureDatabase.ghostBlueStructures[building].building);
     }
