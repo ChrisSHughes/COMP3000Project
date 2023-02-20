@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6758990854067899308}
   - component: {fileID: 6758990854067899311}
   - component: {fileID: 6758990854067899310}
-  - component: {fileID: 6758990854067899305}
   m_Layer: 8
   m_Name: Track
   m_TagString: Untagged
@@ -248,7 +247,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9768
+  m_VersionIndex: 9786
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -330,20 +329,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990854067899307}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990854067899305
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990854067899307}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990854194646655
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +374,6 @@ GameObject:
   - component: {fileID: 6758990854195713916}
   - component: {fileID: 6758990854195713919}
   - component: {fileID: 6758990854195713918}
-  - component: {fileID: 6758990854195713913}
   m_Layer: 8
   m_Name: Wire
   m_TagString: Untagged
@@ -1064,7 +1048,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6827
+  m_VersionIndex: 6845
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1150,20 +1134,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990854195713915}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990854195713913
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990854195713915}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990854208531711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,7 +1147,6 @@ GameObject:
   - component: {fileID: 6758990854208531680}
   - component: {fileID: 6758990854208531683}
   - component: {fileID: 6758990854208531682}
-  - component: {fileID: 6758990854208531709}
   m_Layer: 8
   m_Name: Crane Arm Foundation
   m_TagString: Untagged
@@ -2062,7 +2031,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6457
+  m_VersionIndex: 6475
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2148,20 +2117,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990854208531711}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990854208531709
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990854208531711}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990854237007762
 GameObject:
   m_ObjectHideFlags: 0
@@ -2175,7 +2130,6 @@ GameObject:
   - component: {fileID: 6758990854237007767}
   - component: {fileID: 6758990854237007766}
   - component: {fileID: 6758990854237007761}
-  - component: {fileID: 6758990854237007760}
   m_Layer: 8
   m_Name: Wire (1)
   m_TagString: Untagged
@@ -2850,7 +2804,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6833
+  m_VersionIndex: 6851
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2936,20 +2890,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990854237007762}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990854237007760
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990854237007762}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990854323823464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2963,7 +2903,6 @@ GameObject:
   - component: {fileID: 6758990854323823469}
   - component: {fileID: 6758990854323823468}
   - component: {fileID: 6758990854323823471}
-  - component: {fileID: 6758990854323823470}
   m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -3198,7 +3137,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3957
+  m_VersionIndex: 3975
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3280,20 +3219,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990854323823464}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990854323823470
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990854323823464}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990854501358215
 GameObject:
   m_ObjectHideFlags: 0
@@ -3307,7 +3232,6 @@ GameObject:
   - component: {fileID: 6758990854501358216}
   - component: {fileID: 6758990854501358219}
   - component: {fileID: 6758990854501358218}
-  - component: {fileID: 6758990854501358213}
   m_Layer: 8
   m_Name: BarnDoor
   m_TagString: Untagged
@@ -3433,7 +3357,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9087
+  m_VersionIndex: 9090
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3515,20 +3439,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990854501358215}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990854501358213
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990854501358215}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990854507928184
 GameObject:
   m_ObjectHideFlags: 0
@@ -3542,7 +3452,6 @@ GameObject:
   - component: {fileID: 6758990854507928189}
   - component: {fileID: 6758990854507928188}
   - component: {fileID: 6758990854507928191}
-  - component: {fileID: 6758990854507928190}
   m_Layer: 8
   m_Name: Wire (2)
   m_TagString: Untagged
@@ -4217,7 +4126,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6830
+  m_VersionIndex: 6848
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4303,20 +4212,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990854507928184}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990854507928190
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990854507928184}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990854604108048
 GameObject:
   m_ObjectHideFlags: 0
@@ -4330,7 +4225,6 @@ GameObject:
   - component: {fileID: 6758990854604108053}
   - component: {fileID: 6758990854604108052}
   - component: {fileID: 6758990854604108055}
-  - component: {fileID: 6758990854604108054}
   m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -4565,7 +4459,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4490
+  m_VersionIndex: 4508
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4647,20 +4541,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990854604108048}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990854604108054
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990854604108048}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990854655489759
 GameObject:
   m_ObjectHideFlags: 0
@@ -4674,7 +4554,6 @@ GameObject:
   - component: {fileID: 6758990854655489728}
   - component: {fileID: 6758990854655489731}
   - component: {fileID: 6758990854655489730}
-  - component: {fileID: 6758990854655489757}
   m_Layer: 8
   m_Name: Crane Foundation
   m_TagString: Untagged
@@ -5560,7 +5439,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6451
+  m_VersionIndex: 6472
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5646,20 +5525,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990854655489759}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990854655489757
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990854655489759}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990854705230089
 GameObject:
   m_ObjectHideFlags: 0
@@ -5673,7 +5538,6 @@ GameObject:
   - component: {fileID: 6758990854705230194}
   - component: {fileID: 6758990854705230093}
   - component: {fileID: 6758990854705230092}
-  - component: {fileID: 6758990854705230095}
   m_Layer: 8
   m_Name: Barn
   m_TagString: Untagged
@@ -7742,7 +7606,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9051
+  m_VersionIndex: 9069
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -7824,20 +7688,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990854705230089}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990854705230095
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990854705230089}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990854779512367
 GameObject:
   m_ObjectHideFlags: 0
@@ -7851,7 +7701,6 @@ GameObject:
   - component: {fileID: 6758990854779512336}
   - component: {fileID: 6758990854779512339}
   - component: {fileID: 6758990854779512338}
-  - component: {fileID: 6758990854779512365}
   m_Layer: 8
   m_Name: Crane Arm
   m_TagString: Untagged
@@ -8087,7 +7936,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3030
+  m_VersionIndex: 3048
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -8169,20 +8018,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990854779512367}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990854779512365
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990854779512367}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990854857224140
 GameObject:
   m_ObjectHideFlags: 0
@@ -8231,7 +8066,6 @@ GameObject:
   - component: {fileID: 6758990854883240582}
   - component: {fileID: 6758990854883240577}
   - component: {fileID: 6758990854883240576}
-  - component: {fileID: 6758990854883240579}
   m_Layer: 8
   m_Name: Grabber Mover
   m_TagString: Untagged
@@ -8471,7 +8305,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3834
+  m_VersionIndex: 3852
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -8553,20 +8387,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990854883240605}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990854883240579
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990854883240605}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990855300605156
 GameObject:
   m_ObjectHideFlags: 0
@@ -8580,7 +8400,6 @@ GameObject:
   - component: {fileID: 6758990855300605161}
   - component: {fileID: 6758990855300605160}
   - component: {fileID: 6758990855300605163}
-  - component: {fileID: 6758990855300605162}
   m_Layer: 8
   m_Name: Wire (3)
   m_TagString: Untagged
@@ -9255,7 +9074,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6836
+  m_VersionIndex: 6857
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -9341,20 +9160,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990855300605156}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990855300605162
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990855300605156}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990855352152335
 GameObject:
   m_ObjectHideFlags: 0
@@ -9368,7 +9173,6 @@ GameObject:
   - component: {fileID: 6758990855352152432}
   - component: {fileID: 6758990855352152435}
   - component: {fileID: 6758990855352152434}
-  - component: {fileID: 6758990855352152333}
   m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
@@ -9603,7 +9407,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3954
+  m_VersionIndex: 3978
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -9685,20 +9489,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990855352152335}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990855352152333
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990855352152335}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990855356298291
 GameObject:
   m_ObjectHideFlags: 0
@@ -9712,7 +9502,6 @@ GameObject:
   - component: {fileID: 6758990855356298292}
   - component: {fileID: 6758990855356298295}
   - component: {fileID: 6758990855356298294}
-  - component: {fileID: 6758990855356298289}
   m_Layer: 8
   m_Name: Construction Yard Building
   m_TagString: Untagged
@@ -10160,7 +9949,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 11893
+  m_VersionIndex: 11914
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -10242,20 +10031,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990855356298291}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990855356298289
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990855356298291}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990855531449843
 GameObject:
   m_ObjectHideFlags: 0
@@ -10269,7 +10044,6 @@ GameObject:
   - component: {fileID: 6758990855531449844}
   - component: {fileID: 6758990855531449847}
   - component: {fileID: 6758990855531449846}
-  - component: {fileID: 6758990855531449841}
   m_Layer: 8
   m_Name: CounterWeight
   m_TagString: Untagged
@@ -10504,7 +10278,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5740
+  m_VersionIndex: 5758
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -10586,20 +10360,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990855531449843}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990855531449841
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990855531449843}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990855636781982
 GameObject:
   m_ObjectHideFlags: 0
@@ -10613,7 +10373,6 @@ GameObject:
   - component: {fileID: 6758990855636781955}
   - component: {fileID: 6758990855636781954}
   - component: {fileID: 6758990855636781981}
-  - component: {fileID: 6758990855636781980}
   m_Layer: 8
   m_Name: Cockpit
   m_TagString: Untagged
@@ -11092,7 +10851,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3607
+  m_VersionIndex: 3628
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -11174,20 +10933,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990855636781982}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990855636781980
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990855636781982}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990855765421627
 GameObject:
   m_ObjectHideFlags: 0
@@ -11201,7 +10946,6 @@ GameObject:
   - component: {fileID: 6758990855765421628}
   - component: {fileID: 6758990855765421631}
   - component: {fileID: 6758990855765421630}
-  - component: {fileID: 6758990855765421625}
   m_Layer: 8
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -11436,7 +11180,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4493
+  m_VersionIndex: 4511
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -11518,20 +11262,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990855765421627}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990855765421625
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990855765421627}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990855920732796
 GameObject:
   m_ObjectHideFlags: 0
@@ -11545,7 +11275,6 @@ GameObject:
   - component: {fileID: 6758990855920732769}
   - component: {fileID: 6758990855920732768}
   - component: {fileID: 6758990855920732771}
-  - component: {fileID: 6758990855920732770}
   m_Layer: 8
   m_Name: Crane Arm Foundation
   m_TagString: Untagged
@@ -12430,7 +12159,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6454
+  m_VersionIndex: 6472
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -12516,20 +12245,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990855920732796}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990855920732770
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990855920732796}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990855979126913
 GameObject:
   m_ObjectHideFlags: 0
@@ -12543,7 +12258,6 @@ GameObject:
   - component: {fileID: 6758990855979126922}
   - component: {fileID: 6758990855979126917}
   - component: {fileID: 6758990855979126916}
-  - component: {fileID: 6758990855979126919}
   m_Layer: 8
   m_Name: Bard DoorFrame
   m_TagString: Untagged
@@ -13030,7 +12744,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9114
+  m_VersionIndex: 9132
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -13112,20 +12826,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990855979126913}
   m_Mesh: {fileID: 0}
---- !u!64 &6758990855979126919
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990855979126913}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6758990855981662030
 GameObject:
   m_ObjectHideFlags: 0
@@ -13136,8 +12836,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6758990855981662028}
   - component: {fileID: 6758990855981662031}
-  - component: {fileID: 1226954267}
   - component: {fileID: 157650248}
+  - component: {fileID: 6398751874319549624}
   m_Layer: 8
   m_Name: Red Construction Yard
   m_TagString: Structure
@@ -13173,21 +12873,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 50, z: 4}
-  m_Center: {x: 0.9451318, y: 50, z: -1.0258837}
---- !u!65 &1226954267
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990855981662030}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.778822, y: 96.83209, z: 2.8121815}
-  m_Center: {x: 1.004508, y: 0, z: -1.0116072}
+  m_Size: {x: 2.778822, y: 149.96613, z: 2.8121815}
+  m_Center: {x: 1.004508, y: 75.28345, z: -1.0116072}
 --- !u!114 &157650248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13203,6 +12890,22 @@ MonoBehaviour:
   origin: {x: 0, y: 0, z: 0}
   sizex: 3
   sizez: 3
+--- !u!208 &6398751874319549624
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6758990855981662030}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.45, y: 0.5, z: 1.45}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 1, y: 0, z: -1}
+  m_TimeToStationary: 0.5
 --- !u!1 &6758990856188592558
 GameObject:
   m_ObjectHideFlags: 0
@@ -13216,7 +12919,6 @@ GameObject:
   - component: {fileID: 6758990856188592531}
   - component: {fileID: 6758990856188592530}
   - component: {fileID: 6758990856188592557}
-  - component: {fileID: 6758990856188592556}
   m_Layer: 8
   m_Name: Construction Yard Floor
   m_TagString: Untagged
@@ -13302,7 +13004,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 11896
+  m_VersionIndex: 11914
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -13383,18 +13085,4 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758990856188592558}
-  m_Mesh: {fileID: 0}
---- !u!64 &6758990856188592556
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758990856188592558}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
   m_Mesh: {fileID: 0}

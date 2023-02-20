@@ -20,6 +20,11 @@ public class BuildController : MonoBehaviour
     public GameObject selectedBuilding;
     public GameObject ghostedSelectedBuilding;
 
+    public MeshRenderer[] ghostedSelectedBuildingMesh;
+
+    public Material invalid;
+    public Material valid;
+
     bool GhostActive = false;
     public bool isBuilding = false;
     bool buildable = false;
@@ -64,16 +69,16 @@ public class BuildController : MonoBehaviour
                 else
                 {
                     Debug.Log("Not Valid 1");
-                    HideGhost();
                     buildable = false;
+                    ShowGhost(hit.point);
                 }
             }
         }
         else
         {
             Debug.Log("Not Valid 2");
-            HideGhost();
             buildable = false;
+            ShowGhost(hit.point);
         }
     }
 
@@ -87,6 +92,7 @@ public class BuildController : MonoBehaviour
                 {
                     PlaceCubeNear(hit.point);
                     isBuilding = false;
+                    Destroy(ghostedSelectedBuilding);
                 }
             }
         }
@@ -163,7 +169,6 @@ public class BuildController : MonoBehaviour
                         }
                     }
                 }
-
                 if (!coordsFound)
                 {
                     valid = false;
@@ -177,22 +182,34 @@ public class BuildController : MonoBehaviour
 
     private void ShowGhost(Vector3 hitpoint)
     {
-        //Debug.Log("hit a thing with hover");
-        ghostedSelectedBuilding.SetActive(true);
+        // shows the ghost if it is possible to build
+        if(buildable == true)
+        {
+            for (int i = 0; i < ghostedSelectedBuildingMesh.Length; i++)
+            {
+                ghostedSelectedBuildingMesh[i].material = valid;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < ghostedSelectedBuildingMesh.Length; i++)
+            {
+                ghostedSelectedBuildingMesh[i].material = invalid;
+            }
+        }
 
-        // check dictionary for current vec location - if it has a building, no buildy.
-    }
-
-    private void HideGhost()
-    {
-        ghostedSelectedBuilding.SetActive(false);
     }
 
     public void SetBuilding(int building)
     {
         isBuilding = true;
-        Destroy(ghostedSelectedBuilding);
+        if(ghostedSelectedBuilding != null)
+        {
+            Destroy(ghostedSelectedBuilding);
+        }
         selectedBuilding = structureDatabase.blueStructures[building].building;
         ghostedSelectedBuilding = Instantiate(structureDatabase.ghostBlueStructures[building].building);
+        ghostedSelectedBuilding.transform.position = new Vector3(50, -8, 50);
+        ghostedSelectedBuildingMesh = ghostedSelectedBuilding.GetComponentsInChildren<MeshRenderer>();
     }
 }
