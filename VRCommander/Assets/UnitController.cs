@@ -16,18 +16,23 @@ public class UnitController : MonoBehaviour
     public Grid grid;
     public XRRayInteractor rayInteractor;
     public InputActionAsset inputAction;
-
-    private InputAction select;
+    public GameController gameController;
 
     public List<GameObject> selectedUnits = new List<GameObject>();
     public bool SelectedUnits = false;
 
-    void OnEnable()
+    private void OnEnable()
     {
-        Debug.Log("Unit Controller enabled");
-        select = inputAction.FindActionMap("XRI " + targetController.ToString() + " Interaction").FindAction("Activate");
-        select.Enable();
-        select.performed += onSelect;
+        Debug.Log("enabling Unit controller");
+        gameController.trigger.performed += onSelect;
+        gameController.cancel.performed += Back;
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("disabling Unit controller");
+        gameController.trigger.performed -= onSelect;
+        gameController.cancel.performed -= Back;
     }
 
     // Update is called once per frame
@@ -36,6 +41,10 @@ public class UnitController : MonoBehaviour
         OnHoverCall();
     }
 
+    public void Back(InputAction.CallbackContext context)
+    {
+        Debug.Log("B pressed inside Unit controller");
+    }
 
     public void OnHoverCall()
     {
@@ -75,4 +84,5 @@ public class UnitController : MonoBehaviour
         }
 
     }
+
 }

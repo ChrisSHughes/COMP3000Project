@@ -21,24 +21,28 @@ public class BuildController : MonoBehaviour
     public GameObject ghostedSelectedBuilding;
 
     public MeshRenderer[] ghostedSelectedBuildingMesh;
-
     public Material invalid;
     public Material valid;
 
-    bool GhostActive = false;
     public bool isBuilding = false;
     bool buildable = false;
 
-    private InputAction selectCell;
     public StructureDatabase structureDatabase;
+    public GameController gameController;
+    public UnitController unitController;
 
     // Start is called before the first frame update
-    void OnEnable()
+    private void OnEnable()
     {
-        Debug.Log("Building Controller enabled");
-        selectCell = inputAction.FindActionMap("XRI " + targetController.ToString() + " Interaction").FindAction("Activate");
-        selectCell.Enable();
-        selectCell.performed += OnSelectCell;
+        Debug.Log("enabling Build controller");
+        gameController.trigger.performed += OnSelectCell;
+        gameController.cancel.performed += Back;
+    }
+    private void OnDisable()
+    {
+        Debug.Log("disabling Build controller");
+        gameController.trigger.performed -= OnSelectCell;
+        gameController.cancel.performed -= Back;
     }
 
     // Update is called once per frame
@@ -50,25 +54,31 @@ public class BuildController : MonoBehaviour
         }
     }
 
+    public void Back(InputAction.CallbackContext context)
+    {
+        Debug.Log("B pressed inside Building controller");
+    }
+
+    #region Hovering call
     public void OnHoverCell()
     {
         if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hit))
         {
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
-                Debug.Log("hitting ground");
+                //Debug.Log("hitting ground");
                 Vector3 finalPosition = grid.GetNearestPointOnGrid(hit.point);
                 ghostedSelectedBuilding.transform.position = finalPosition;
 
                 if(CheckValid(finalPosition) == true)
                 {
-                    Debug.Log("Valid placement");
+                    //Debug.Log("Valid placement");
                     ShowGhost(hit.point);
                     buildable = true;
                 }
                 else
                 {
-                    Debug.Log("Not Valid 1");
+                    //Debug.Log("Not Valid 1");
                     buildable = false;
                     ShowGhost(hit.point);
                 }
@@ -76,12 +86,14 @@ public class BuildController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not Valid 2");
+            //Debug.Log("Not Valid 2");
             buildable = false;
             ShowGhost(hit.point);
         }
     }
+    #endregion
 
+    #region On Select
     public void OnSelectCell(InputAction.CallbackContext context)
     {
         if ((buildable == true) && (isBuilding == true))
@@ -90,15 +102,21 @@ public class BuildController : MonoBehaviour
             {
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
                 {
-                    PlaceCubeNear(hit.point);
+                    PlaceStructureNear(hit.point);
                     isBuilding = false;
                     Destroy(ghostedSelectedBuilding);
+                    Debug.Log("disabling build controller");
+                    this.enabled = false;
+                    Debug.Log("enabling Unit controller");
+                    unitController.enabled = true;
                 }
             }
         }
     }
+    #endregion
 
-    private void PlaceCubeNear(Vector3 hitPoint)
+    #region Place Structure In Cell
+    private void PlaceStructureNear(Vector3 hitPoint)
     {
         var finalPosition = grid.GetNearestPointOnGrid(hitPoint);
 
@@ -120,7 +138,7 @@ public class BuildController : MonoBehaviour
                 for (int z = 0; z < structCon.sizez; z++)
                 {
                     tile = new Vector3(finalPosition.x + x, finalPosition.y, finalPosition.z - z);
-                    Debug.Log("tile " + tile);
+                    //Debug.Log("tile " + tile);
                     grid.dictCoords[tile] = currentBuilding;
 
                     // debugging for spawning a cube in each used tile.
@@ -138,11 +156,11 @@ public class BuildController : MonoBehaviour
 
                 }
             }
-
         }
     }
+    #endregion
 
-
+    #region validity check
     public bool CheckValid(Vector3 finalPos)
     {
         StructureController structCon = selectedBuilding.GetComponent<StructureController>();
@@ -179,7 +197,9 @@ public class BuildController : MonoBehaviour
 
         return valid;
     }
+    #endregion
 
+    #region ShowGhost
     private void ShowGhost(Vector3 hitpoint)
     {
         // shows the ghost if it is possible to build
@@ -197,12 +217,18 @@ public class BuildController : MonoBehaviour
                 ghostedSelectedBuildingMesh[i].material = invalid;
             }
         }
-
     }
+    #endregion
 
+    #region Set Building
     public void SetBuilding(int building)
     {
         isBuilding = true;
+        Debug.Log("disabling unit controller");
+        unitController.enabled = false;
+        Debug.Log("enabling build controller");
+        this.enabled = true;
+
         if(ghostedSelectedBuilding != null)
         {
             Destroy(ghostedSelectedBuilding);
@@ -212,4 +238,6 @@ public class BuildController : MonoBehaviour
         ghostedSelectedBuilding.transform.position = new Vector3(50, -8, 50);
         ghostedSelectedBuildingMesh = ghostedSelectedBuilding.GetComponentsInChildren<MeshRenderer>();
     }
+    #endregion
+
 }
