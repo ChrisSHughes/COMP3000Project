@@ -8,13 +8,14 @@ public class StructureController : MonoBehaviour
     public float sizex;
     public float sizez;
 
-    int maxHealth = 0;
-    int health = 0;
+    public int MaxHealth = 0;
+    public int Health = 0;
 
-    int techLevelRequired;
-    int techLevel;
+    public int TechLevelRequired;
+    public int TechLevel;
 
-    bool repairing = false;
+    public bool Repairing = false;
+    public bool RallyPointEnabled;
 
 
     void Start()

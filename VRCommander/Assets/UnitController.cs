@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -18,8 +19,11 @@ public class UnitController : MonoBehaviour
     public InputActionAsset inputAction;
     public GameController gameController;
 
-    public List<GameObject> selectedUnits = new List<GameObject>();
-    public bool SelectedUnits = false;
+    public List<GameObject> SelectedUnitsList = new List<GameObject>();
+    public bool SelectedUnitsBool = false;
+
+    public GameObject SelectedBuilding;
+    public bool SelectedBuildingBool;
 
     private void OnEnable()
     {
@@ -43,7 +47,19 @@ public class UnitController : MonoBehaviour
 
     public void Back(InputAction.CallbackContext context)
     {
-        Debug.Log("B pressed inside Unit controller");
+        if (SelectedUnitsBool)
+        {
+            SelectedUnitsBool = false;
+            SelectedUnitsList.Clear();
+            Debug.Log("Cleared Unit List");
+        }
+
+        if (SelectedBuildingBool)
+        {
+            SelectedBuildingBool = false;
+            SelectedBuilding = null;
+            Debug.Log("Cleared Building List");
+        }
     }
 
     public void OnHoverCall()
@@ -52,7 +68,7 @@ public class UnitController : MonoBehaviour
         {
             if ((hit.collider.gameObject.layer == LayerMask.NameToLayer("Structure")) || (hit.collider.gameObject.layer == LayerMask.NameToLayer("BlueUnit")))
             {
-                Debug.Log("hovered over: " + hit.collider.gameObject.name);
+                //Debug.Log("hovered over: " + hit.collider.gameObject.name);
             }
         }
     }
@@ -61,28 +77,33 @@ public class UnitController : MonoBehaviour
 
     void onSelect(InputAction.CallbackContext context)
     {
-        if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hit))
+        if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hitUnit))
         {
-            if(hit.collider.gameObject.layer == LayerMask.NameToLayer("BlueUnit"))
+            if (hitUnit.collider.gameObject.layer == LayerMask.NameToLayer("BlueUnit"))
             {
-                selectedUnits.Add(hit.collider.gameObject);
+                SelectedUnitsList.Clear();
+                SelectedUnitsList.Add(hitUnit.collider.gameObject);
+                SelectedUnitsBool = true;
+                Debug.Log("Unit Selected");
+                return;
             }
+        }
 
-            if (SelectedUnits == false)
+        if (SelectedUnitsBool)
+        {
+            if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hitGround))
             {
-                //if unit, select unit
-                //if building, show
-            }
-            else if (SelectedUnits == true)
-            {
-                //if unit, or building, remove array elements, select new thing
-
-                //if new target is the floor, move them
-
-                //if new target is enemy, attack.
+                if (hitGround.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+                {
+                    for (int i = 0; i < SelectedUnitsList.Count; i++)
+                    {
+                        NavMeshAgent agent = SelectedUnitsList[i].GetComponent<NavMeshAgent>();
+                        Vector3 movePoint = grid.GetNearestPointOnGrid(hitGround.point);
+                        agent.Move(movePoint);
+                    }
+                }
             }
         }
 
     }
-
 }

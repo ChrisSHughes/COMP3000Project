@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    public int locationInt = 0;
+    int locationInt = 1;
 
     public BuildController buildController;
     public UnitController unitController;
@@ -44,7 +44,7 @@ public class UIController : MonoBehaviour
     {
         //ToggleController();
         GameObject tank = Instantiate(Resources.Load<GameObject>("Prefabs/GameObjects/Units/BlueTank"));
-        tank.transform.position = new Vector3(locationInt, 0, 0);
+        tank.transform.position = new Vector3(locationInt, 0, 1);
         locationInt++;
     }
 
@@ -52,7 +52,7 @@ public class UIController : MonoBehaviour
     {
         //ToggleController();
         GameObject tank = Instantiate(Resources.Load<GameObject>("Prefabs/GameObjects/Units/BlueMachineGunner"));
-        tank.transform.position = new Vector3(locationInt, 0, 0);
+        tank.transform.position = new Vector3(locationInt, 0, 1);
         locationInt++;
     }
 }
