@@ -34,7 +34,6 @@ public class Grid : MonoBehaviour
 
     public void DrawGridNodes()
     {
-
         for (float x = 0; x < 100; x += size)
         {
             //Debug.Log("x = " + x);

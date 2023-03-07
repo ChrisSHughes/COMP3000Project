@@ -45,6 +45,7 @@ public class UIController : MonoBehaviour
         //ToggleController();
         GameObject tank = Instantiate(Resources.Load<GameObject>("Prefabs/GameObjects/Units/BlueTank"));
         tank.transform.position = new Vector3(locationInt, 0, 1);
+        tank.tag = "Unit";
         locationInt++;
     }
 

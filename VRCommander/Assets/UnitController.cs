@@ -66,7 +66,7 @@ public class UnitController : MonoBehaviour
     {
         if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hit))
         {
-            if ((hit.collider.gameObject.layer == LayerMask.NameToLayer("Structure")) || (hit.collider.gameObject.layer == LayerMask.NameToLayer("BlueUnit")))
+            if ((hit.collider.gameObject.layer == LayerMask.NameToLayer("BlueStructure")) || (hit.collider.gameObject.layer == LayerMask.NameToLayer("BlueUnit")))
             {
                 //Debug.Log("hovered over: " + hit.collider.gameObject.name);
             }
@@ -97,13 +97,13 @@ public class UnitController : MonoBehaviour
                 {
                     for (int i = 0; i < SelectedUnitsList.Count; i++)
                     {
-                        NavMeshAgent agent = SelectedUnitsList[i].GetComponent<NavMeshAgent>();
                         Vector3 movePoint = grid.GetNearestPointOnGrid(hitGround.point);
-                        agent.Move(movePoint);
+                        TankController controller = GetComponent<TankController>();
+                        controller.SetDestination(movePoint);
+                        controller.InvokeRepeating("UpdateDictionary", 0.1f, 0.3f);
                     }
                 }
             }
         }
-
     }
 }

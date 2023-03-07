@@ -140,11 +140,6 @@ public class BuildController : MonoBehaviour
                     tile = new Vector3(finalPosition.x + x, finalPosition.y, finalPosition.z - z);
                     //Debug.Log("tile " + tile);
                     grid.dictCoords[tile] = currentBuilding;
-
-                    // debugging for spawning a cube in each used tile.
-                    //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    //cube.transform.position = tile;
-                    //cube.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 }
             }
 

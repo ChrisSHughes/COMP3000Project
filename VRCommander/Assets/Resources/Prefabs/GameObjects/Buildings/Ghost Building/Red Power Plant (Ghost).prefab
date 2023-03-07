@@ -48,6 +48,12 @@ MonoBehaviour:
   origin: {x: 0, y: 0, z: 0}
   sizex: 2
   sizez: 0
+  MaxHealth: 0
+  Health: 0
+  TechLevelRequired: 0
+  TechLevel: 0
+  Repairing: 0
+  RallyPointEnabled: 0
 --- !u!1 &4994299322526618761
 GameObject:
   m_ObjectHideFlags: 0
@@ -2176,7 +2182,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7520
+  m_VersionIndex: 7526
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4445,7 +4451,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9423
+  m_VersionIndex: 9429
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

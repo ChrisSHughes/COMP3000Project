@@ -64,6 +64,12 @@ MonoBehaviour:
   origin: {x: 47, y: 0, z: 15}
   sizex: 2
   sizez: 2
+  MaxHealth: 100
+  Health: 100
+  TechLevelRequired: 2
+  TechLevel: 3
+  Repairing: 0
+  RallyPointEnabled: 1
 --- !u!208 &4020201935294630168
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -476,7 +482,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 14188
+  m_VersionIndex: 14194
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

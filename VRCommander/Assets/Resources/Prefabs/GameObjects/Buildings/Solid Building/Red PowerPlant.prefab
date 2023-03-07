@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6184736985157715220}
   - component: {fileID: 6184736985157715221}
   - component: {fileID: 6184736985157715218}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Chimney
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2187,7 +2187,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9399
+  m_VersionIndex: 9405
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2286,7 +2286,7 @@ GameObject:
   - component: {fileID: 6184736985419431956}
   - component: {fileID: 6184736985419431957}
   - component: {fileID: 6184736985419431954}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Power Plant building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4401,7 +4401,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7496
+  m_VersionIndex: 7502
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4495,7 +4495,7 @@ GameObject:
   - component: {fileID: 6184736985654817840}
   - component: {fileID: 1573541625}
   - component: {fileID: 2354766413604109712}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Red PowerPlant
   m_TagString: Structure
   m_Icon: {fileID: 0}
@@ -4546,6 +4546,12 @@ MonoBehaviour:
   origin: {x: 96, y: 0, z: 2}
   sizex: 2
   sizez: 2
+  MaxHealth: 0
+  Health: 0
+  TechLevelRequired: 0
+  TechLevel: 0
+  Repairing: 0
+  RallyPointEnabled: 0
 --- !u!208 &2354766413604109712
 NavMeshObstacle:
   m_ObjectHideFlags: 0
