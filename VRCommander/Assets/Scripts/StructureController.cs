@@ -5,6 +5,7 @@ using UnityEngine;
 public class StructureController : MonoBehaviour
 {
     public Vector3 origin;
+    public int Team;
     public float sizex;
     public float sizez;
 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4464668058453758627}
   - component: {fileID: 4464668058453758626}
   - component: {fileID: 4464668058453758629}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Power Plant building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2128,7 +2128,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7496
+  m_VersionIndex: 7502
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2219,7 +2219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4464668058822305412}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Blue Power Plant (Ghost)
   m_TagString: Structure
   m_Icon: {fileID: 0}
@@ -2255,7 +2255,7 @@ GameObject:
   - component: {fileID: 4464668059264997283}
   - component: {fileID: 4464668059264997282}
   - component: {fileID: 4464668059264997285}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Chimney
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4429,7 +4429,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9399
+  m_VersionIndex: 9405
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Structure
   - Unit
+  - BlueUnit
+  - RedUnit
+  - BlueStructure
+  - RedStructure
   layers:
   - Default
   - TransparentFX
@@ -15,10 +19,10 @@ TagManager:
   - UI
   - Teleport
   - GhostBuilding
-  - BlueStructure
-  - RedStructure
-  - BlueUnit
-  - RedUnit
+  - Structure
+  - Unit
+  - RangeSphere
+  - 
   - InteractorRay
   - Structure UI
   - 

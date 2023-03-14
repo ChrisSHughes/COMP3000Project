@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1417260686044585871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9171752360487451635}
+  - component: {fileID: 5560977450118385034}
+  m_Layer: 10
+  m_Name: RangeFinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9171752360487451635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417260686044585871}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8033535265821681747}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5560977450118385034
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417260686044585871}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8033535265174524973
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,8 +58,7 @@ GameObject:
   - component: {fileID: 8033535265174524970}
   - component: {fileID: 8033535265174524969}
   - component: {fileID: 8033535265174524968}
-  - component: {fileID: 8033535265174524975}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1065,7 +1109,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6650
+  m_VersionIndex: 6677
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1151,20 +1195,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8033535265174524973}
   m_Mesh: {fileID: 0}
---- !u!64 &8033535265174524975
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8033535265174524973}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &8033535265206114121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,8 +1208,7 @@ GameObject:
   - component: {fileID: 8033535265206114118}
   - component: {fileID: 8033535265206114117}
   - component: {fileID: 8033535265206114116}
-  - component: {fileID: 8033535265206114123}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Front Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2229,7 +2258,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1623
+  m_VersionIndex: 1647
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2315,20 +2344,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8033535265206114121}
   m_Mesh: {fileID: 0}
---- !u!64 &8033535265206114123
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8033535265206114121}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &8033535265294189165
 GameObject:
   m_ObjectHideFlags: 0
@@ -2342,8 +2357,7 @@ GameObject:
   - component: {fileID: 8033535265294189162}
   - component: {fileID: 8033535265294189161}
   - component: {fileID: 8033535265294189160}
-  - component: {fileID: 8033535265294189167}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2578,7 +2592,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2646
+  m_VersionIndex: 2673
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2660,20 +2674,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8033535265294189165}
   m_Mesh: {fileID: 0}
---- !u!64 &8033535265294189167
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8033535265294189165}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &8033535265729153878
 GameObject:
   m_ObjectHideFlags: 0
@@ -2687,8 +2687,7 @@ GameObject:
   - component: {fileID: 8033535265729153875}
   - component: {fileID: 8033535265729153874}
   - component: {fileID: 8033535265729153873}
-  - component: {fileID: 8033535265729153872}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Back Wheels Mid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3738,7 +3737,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1620
+  m_VersionIndex: 1644
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3824,20 +3823,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8033535265729153878}
   m_Mesh: {fileID: 0}
---- !u!64 &8033535265729153872
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8033535265729153878}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &8033535265821681746
 GameObject:
   m_ObjectHideFlags: 0
@@ -3850,10 +3835,10 @@ GameObject:
   - component: {fileID: 365366157935669993}
   - component: {fileID: 5930394062607765317}
   - component: {fileID: 475334938}
-  - component: {fileID: 1738193038}
-  m_Layer: 11
+  - component: {fileID: 1762534510}
+  m_Layer: 9
   m_Name: RedTank
-  m_TagString: Unit
+  m_TagString: RedUnit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3876,6 +3861,7 @@ Transform:
   - {fileID: 8033535266123485281}
   - {fileID: 8033535265206114122}
   - {fileID: 8033535266710848661}
+  - {fileID: 9171752360487451635}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3926,21 +3912,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f7342c8851e71d418ecc81580f11fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Destination: {x: 0, y: 0, z: 0}
+  Team: 2
+  Destination: {x: 53, y: 0, z: 15}
   LastPosition: {x: 0, y: 0, z: 0}
---- !u!135 &1738193038
-SphereCollider:
+--- !u!54 &1762534510
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8033535265821681746}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8033535265936307832
 GameObject:
   m_ObjectHideFlags: 0
@@ -3954,8 +3944,7 @@ GameObject:
   - component: {fileID: 8033535265936307829}
   - component: {fileID: 8033535265936307828}
   - component: {fileID: 8033535265936307835}
-  - component: {fileID: 8033535265936307834}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Back Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5005,7 +4994,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1614
+  m_VersionIndex: 1638
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5091,20 +5080,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8033535265936307832}
   m_Mesh: {fileID: 0}
---- !u!64 &8033535265936307834
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8033535265936307832}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &8033535266123485280
 GameObject:
   m_ObjectHideFlags: 0
@@ -5118,8 +5093,7 @@ GameObject:
   - component: {fileID: 8033535266123485309}
   - component: {fileID: 8033535266123485308}
   - component: {fileID: 8033535266123485283}
-  - component: {fileID: 8033535266123485282}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: 'Front Wheels Mid '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6169,7 +6143,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1623
+  m_VersionIndex: 1647
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6255,20 +6229,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8033535266123485280}
   m_Mesh: {fileID: 0}
---- !u!64 &8033535266123485282
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8033535266123485280}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &8033535266287444080
 GameObject:
   m_ObjectHideFlags: 0
@@ -6282,8 +6242,7 @@ GameObject:
   - component: {fileID: 8033535266287443981}
   - component: {fileID: 8033535266287443980}
   - component: {fileID: 8033535266287444083}
-  - component: {fileID: 8033535266287444082}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7333,7 +7292,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1929
+  m_VersionIndex: 1953
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -7419,20 +7378,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8033535266287444080}
   m_Mesh: {fileID: 0}
---- !u!64 &8033535266287444082
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8033535266287444080}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &8033535266525066825
 GameObject:
   m_ObjectHideFlags: 0
@@ -7446,8 +7391,7 @@ GameObject:
   - component: {fileID: 8033535266525066822}
   - component: {fileID: 8033535266525066821}
   - component: {fileID: 8033535266525066820}
-  - component: {fileID: 8033535266525066827}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: TankBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7801,7 +7745,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5391
+  m_VersionIndex: 5415
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -7883,20 +7827,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8033535266525066825}
   m_Mesh: {fileID: 0}
---- !u!64 &8033535266525066827
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8033535266525066825}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &8033535266587490317
 GameObject:
   m_ObjectHideFlags: 0
@@ -7910,8 +7840,7 @@ GameObject:
   - component: {fileID: 8033535266587490314}
   - component: {fileID: 8033535266587490313}
   - component: {fileID: 8033535266587490312}
-  - component: {fileID: 8033535266587490319}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8962,7 +8891,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2796
+  m_VersionIndex: 2820
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -9048,20 +8977,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8033535266587490317}
   m_Mesh: {fileID: 0}
---- !u!64 &8033535266587490319
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8033535266587490317}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &8033535266710848660
 GameObject:
   m_ObjectHideFlags: 0
@@ -9071,7 +8986,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8033535266710848661}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: TurretPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

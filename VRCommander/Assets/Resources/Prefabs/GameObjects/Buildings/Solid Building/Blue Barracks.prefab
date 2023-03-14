@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4020201935294630168}
   m_Layer: 8
   m_Name: Blue Barracks
-  m_TagString: Structure
+  m_TagString: BlueStructure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,6 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origin: {x: 47, y: 0, z: 15}
+  Team: 1
   sizex: 2
   sizez: 2
   MaxHealth: 100
@@ -482,7 +483,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 14194
+  m_VersionIndex: 14203
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

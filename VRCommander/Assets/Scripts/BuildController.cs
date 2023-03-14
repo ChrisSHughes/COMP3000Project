@@ -115,7 +115,7 @@ public class BuildController : MonoBehaviour
     }
     #endregion
 
-    #region Place Structure In Cell
+
     private void PlaceStructureNear(Vector3 hitPoint)
     {
         var finalPosition = grid.GetNearestPointOnGrid(hitPoint);
@@ -153,9 +153,7 @@ public class BuildController : MonoBehaviour
             }
         }
     }
-    #endregion
 
-    #region validity check
     public bool CheckValid(Vector3 finalPos)
     {
         StructureController structCon = selectedBuilding.GetComponent<StructureController>();
@@ -192,9 +190,8 @@ public class BuildController : MonoBehaviour
 
         return valid;
     }
-    #endregion
 
-    #region ShowGhost
+
     private void ShowGhost(Vector3 hitpoint)
     {
         // shows the ghost if it is possible to build
@@ -213,9 +210,8 @@ public class BuildController : MonoBehaviour
             }
         }
     }
-    #endregion
 
-    #region Set Building
+
     public void SetBuilding(int building)
     {
         isBuilding = true;
@@ -233,6 +229,4 @@ public class BuildController : MonoBehaviour
         ghostedSelectedBuilding.transform.position = new Vector3(50, -8, 50);
         ghostedSelectedBuildingMesh = ghostedSelectedBuilding.GetComponentsInChildren<MeshRenderer>();
     }
-    #endregion
-
 }

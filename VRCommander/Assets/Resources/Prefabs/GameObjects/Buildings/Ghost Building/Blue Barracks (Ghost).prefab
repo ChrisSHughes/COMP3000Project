@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4404538993271126748}
   - component: {fileID: 2956625315726636183}
   - component: {fileID: 2379545000699581022}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Barracks Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 8840337902812691758}
   - component: {fileID: 8840337902812691759}
   - component: {fileID: 8840337902812691792}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Barracks Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -576,7 +576,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 14197
+  m_VersionIndex: 14203
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -667,7 +667,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8840337904119098184}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Blue Barracks (Ghost)
   m_TagString: Structure
   m_Icon: {fileID: 0}

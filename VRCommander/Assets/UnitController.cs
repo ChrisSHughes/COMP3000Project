@@ -66,12 +66,17 @@ public class UnitController : MonoBehaviour
     {
         if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hit))
         {
-            if ((hit.collider.gameObject.layer == LayerMask.NameToLayer("BlueStructure")) || (hit.collider.gameObject.layer == LayerMask.NameToLayer("BlueUnit")))
+            if ((hit.collider.gameObject.layer == LayerMask.NameToLayer("Structure")) || (hit.collider.gameObject.layer == LayerMask.NameToLayer("Unit")))
             {
                 //Debug.Log("hovered over: " + hit.collider.gameObject.name);
             }
         }
     }
+
+    /// <summary>
+    /// these were originally on layers, and i was checking the layers to see what the player can interact with, which i thought was wrong. unity has a system for this in the background
+    /// i need to be checking tags because the player will be interacting with specific objects.
+    /// </summary>
 
 
 
@@ -79,7 +84,7 @@ public class UnitController : MonoBehaviour
     {
         if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hitUnit))
         {
-            if (hitUnit.collider.gameObject.layer == LayerMask.NameToLayer("BlueUnit"))
+            if (hitUnit.collider.gameObject.tag == "BlueUnit")
             {
                 SelectedUnitsList.Clear();
                 SelectedUnitsList.Add(hitUnit.collider.gameObject);

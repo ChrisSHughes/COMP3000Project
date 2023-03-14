@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1213990662285748494}
   - component: {fileID: 1213990662285748489}
   - component: {fileID: 1213990662285748488}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Main Doorframe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +490,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6487
+  m_VersionIndex: 6493
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -585,7 +585,7 @@ GameObject:
   - component: {fileID: 1213990662523724994}
   - component: {fileID: 1213990662523725021}
   - component: {fileID: 1213990662523725020}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: War Factory Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -988,7 +988,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 14989
+  m_VersionIndex: 14998
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1083,7 +1083,7 @@ GameObject:
   - component: {fileID: 1213990662742262420}
   - component: {fileID: 1213990662742262423}
   - component: {fileID: 1213990662742262422}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: MainDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1317,7 +1317,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4609
+  m_VersionIndex: 4615
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1412,7 +1412,7 @@ GameObject:
   - component: {fileID: 1213990663009901303}
   - component: {fileID: 1213990663009901302}
   - component: {fileID: 1213990663009901297}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Blast Door Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1937,7 +1937,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 12258
+  m_VersionIndex: 12267
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2032,7 +2032,7 @@ GameObject:
   - component: {fileID: 1213990663016920663}
   - component: {fileID: 1213990663016920662}
   - component: {fileID: 1213990663016920657}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Blast Door Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2557,7 +2557,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 13391
+  m_VersionIndex: 13397
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2648,7 +2648,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6053799865144776176}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Blue War Factory (Ghost)
   m_TagString: Structure
   m_Icon: {fileID: 0}

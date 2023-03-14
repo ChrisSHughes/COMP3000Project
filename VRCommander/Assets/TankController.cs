@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class TankController : MonoBehaviour
 {
-    
+    public int Team;
     public Vector3 Destination;
     public Vector3 LastPosition;
 
@@ -18,7 +18,7 @@ public class TankController : MonoBehaviour
         grid = FindObjectOfType<Grid>();
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = true;
-        agent.destination = new Vector3(50, 0, 10);
+        agent.destination = Destination;
         InvokeRepeating("UpdateDictionary", 0.1f, 0.3f);
     }
 
@@ -55,9 +55,22 @@ public class TankController : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag != "RedUnit" || other.gameObject.tag != "RedStructure")
+        if(other.gameObject.GetComponent<TankController>())
         {
-
+            TankController tank = other.gameObject.GetComponent<TankController>();
+            if(tank.Team != this.Team)
+            {
+                Debug.Log("This unit is on team " + tank.Team);
+                return;
+            }
+        }
+        else if (other.gameObject.GetComponent<StructureController>())
+        {
+            StructureController structure = other.gameObject.GetComponent<StructureController>();
+            if (structure.Team != this.Team)
+            {
+                Debug.Log("This structure is on team " + structure.Team);
+            }
         }
     }
 }

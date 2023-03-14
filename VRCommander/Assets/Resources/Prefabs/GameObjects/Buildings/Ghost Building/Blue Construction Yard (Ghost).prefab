@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3539046079228381177}
   - component: {fileID: 3539046079228380934}
   - component: {fileID: 3539046079228380935}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Crane Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3069
+  m_VersionIndex: 3075
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 3539046079356707855}
   - component: {fileID: 3539046079356707852}
   - component: {fileID: 3539046079356707853}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +577,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3993
+  m_VersionIndex: 3999
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -672,7 +672,7 @@ GameObject:
   - component: {fileID: 3539046079393633064}
   - component: {fileID: 3539046079393633065}
   - component: {fileID: 3539046079393633078}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: BarnDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -892,7 +892,7 @@ GameObject:
   - component: {fileID: 3539046079447194949}
   - component: {fileID: 3539046079447194946}
   - component: {fileID: 3539046079447194947}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Crane Arm Foundation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1776,7 +1776,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6493
+  m_VersionIndex: 6499
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1875,7 +1875,7 @@ GameObject:
   - component: {fileID: 3539046079654562043}
   - component: {fileID: 3539046079654562040}
   - component: {fileID: 3539046079654562041}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Crane Foundation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2760,7 +2760,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6484
+  m_VersionIndex: 6490
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2859,7 +2859,7 @@ GameObject:
   - component: {fileID: 3539046079655637099}
   - component: {fileID: 3539046079655637096}
   - component: {fileID: 3539046079655637097}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Grabber Mover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3098,7 +3098,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3867
+  m_VersionIndex: 3873
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3193,7 +3193,7 @@ GameObject:
   - component: {fileID: 3539046079713128258}
   - component: {fileID: 3539046079713128259}
   - component: {fileID: 3539046079713128256}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Wire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3867,7 +3867,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6863
+  m_VersionIndex: 6869
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3966,7 +3966,7 @@ GameObject:
   - component: {fileID: 3539046079727460583}
   - component: {fileID: 3539046079727460580}
   - component: {fileID: 3539046079727460581}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Wire (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4640,7 +4640,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6869
+  m_VersionIndex: 6875
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4739,7 +4739,7 @@ GameObject:
   - component: {fileID: 3539046079870571162}
   - component: {fileID: 3539046079870571163}
   - component: {fileID: 3539046079870571160}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Wire (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5413,7 +5413,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6866
+  m_VersionIndex: 6872
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5512,7 +5512,7 @@ GameObject:
   - component: {fileID: 3539046080074754113}
   - component: {fileID: 3539046080074754126}
   - component: {fileID: 3539046080074754127}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Track
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5746,7 +5746,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9801
+  m_VersionIndex: 9807
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5837,7 +5837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3539046080138518270}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Hook Foundation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5876,7 +5876,7 @@ GameObject:
   - component: {fileID: 3539046080149693750}
   - component: {fileID: 3539046080149693751}
   - component: {fileID: 3539046080149693748}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Bard DoorFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6362,7 +6362,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9147
+  m_VersionIndex: 9153
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6457,7 +6457,7 @@ GameObject:
   - component: {fileID: 3539046080282152952}
   - component: {fileID: 3539046080282152953}
   - component: {fileID: 3539046080282152710}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: CounterWeight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6691,7 +6691,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5776
+  m_VersionIndex: 5782
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6782,7 +6782,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3539046080356652105}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Blue Construction Yard (Ghost)
   m_TagString: Structure
   m_Icon: {fileID: 0}
@@ -6819,7 +6819,7 @@ GameObject:
   - component: {fileID: 3539046080376439307}
   - component: {fileID: 3539046080376439304}
   - component: {fileID: 3539046080376439305}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7053,7 +7053,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3996
+  m_VersionIndex: 4002
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -7148,7 +7148,7 @@ GameObject:
   - component: {fileID: 3539046080483818345}
   - component: {fileID: 3539046080483818358}
   - component: {fileID: 3539046080483818359}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Wire (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7822,7 +7822,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6863
+  m_VersionIndex: 6869
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -7921,7 +7921,7 @@ GameObject:
   - component: {fileID: 3539046080552217361}
   - component: {fileID: 3539046080552217374}
   - component: {fileID: 3539046080552217375}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Crane Arm Foundation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8805,7 +8805,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6490
+  m_VersionIndex: 6496
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -8904,7 +8904,7 @@ GameObject:
   - component: {fileID: 3539046080573445752}
   - component: {fileID: 3539046080573445753}
   - component: {fileID: 3539046080573444486}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9138,7 +9138,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4529
+  m_VersionIndex: 4535
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -9233,7 +9233,7 @@ GameObject:
   - component: {fileID: 3539046080689341083}
   - component: {fileID: 3539046080689341080}
   - component: {fileID: 3539046080689341081}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9467,7 +9467,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4526
+  m_VersionIndex: 4532
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -9562,7 +9562,7 @@ GameObject:
   - component: {fileID: 3539046080850306857}
   - component: {fileID: 3539046080850306870}
   - component: {fileID: 3539046080850306871}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Construction Yard Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9647,7 +9647,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 11929
+  m_VersionIndex: 11935
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -9742,7 +9742,7 @@ GameObject:
   - component: {fileID: 3539046080854094079}
   - component: {fileID: 3539046080854094076}
   - component: {fileID: 3539046080854094077}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Barn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11810,7 +11810,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9084
+  m_VersionIndex: 9090
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -11905,7 +11905,7 @@ GameObject:
   - component: {fileID: 3539046081038305409}
   - component: {fileID: 3539046081038305422}
   - component: {fileID: 3539046081038305423}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Construction Yard Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12352,7 +12352,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 11929
+  m_VersionIndex: 11935
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -12443,7 +12443,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3539046081054001749}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Crane Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12479,7 +12479,7 @@ GameObject:
   - component: {fileID: 3539046081132775498}
   - component: {fileID: 3539046081132775499}
   - component: {fileID: 3539046081132775496}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Cockpit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12957,7 +12957,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3646
+  m_VersionIndex: 3652
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

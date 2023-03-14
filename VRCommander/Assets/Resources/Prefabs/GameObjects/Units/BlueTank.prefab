@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &952740700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 952740701}
+  - component: {fileID: 952740702}
+  m_Layer: 10
+  m_Name: RangeFinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &952740701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952740700}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 630238329164289249}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &952740702
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952740700}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &630238327884000251
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,7 +58,7 @@ GameObject:
   - component: {fileID: 630238327884000244}
   - component: {fileID: 630238327884000247}
   - component: {fileID: 630238327884000246}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Front Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1063,7 +1108,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1623
+  m_VersionIndex: 1644
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1162,7 +1207,7 @@ GameObject:
   - component: {fileID: 630238327982696600}
   - component: {fileID: 630238327982696603}
   - component: {fileID: 630238327982696602}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2213,7 +2258,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6650
+  m_VersionIndex: 6671
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2312,7 +2357,7 @@ GameObject:
   - component: {fileID: 630238328401147873}
   - component: {fileID: 630238328401147872}
   - component: {fileID: 630238328401147875}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Back Wheels Mid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3362,7 +3407,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1620
+  m_VersionIndex: 1641
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3461,7 +3506,7 @@ GameObject:
   - component: {fileID: 630238328634785496}
   - component: {fileID: 630238328634785499}
   - component: {fileID: 630238328634785498}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3696,7 +3741,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2640
+  m_VersionIndex: 2661
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3791,7 +3836,7 @@ GameObject:
   - component: {fileID: 630238328929561807}
   - component: {fileID: 630238328929561806}
   - component: {fileID: 630238328929561809}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: 'Front Wheels Mid '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4841,7 +4886,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1623
+  m_VersionIndex: 1644
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4940,7 +4985,7 @@ GameObject:
   - component: {fileID: 630238328965389503}
   - component: {fileID: 630238328965389502}
   - component: {fileID: 630238328965389505}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5990,7 +6035,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1932
+  m_VersionIndex: 1953
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6088,10 +6133,10 @@ GameObject:
   - component: {fileID: 7120715738516016731}
   - component: {fileID: 7703941183098161289}
   - component: {fileID: 696779039}
-  - component: {fileID: 1791224941}
-  m_Layer: 10
+  - component: {fileID: 259196818}
+  m_Layer: 9
   m_Name: BlueTank
-  m_TagString: Unit
+  m_TagString: BlueUnit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6114,6 +6159,7 @@ Transform:
   - {fileID: 630238328929561811}
   - {fileID: 630238327884000248}
   - {fileID: 630238329382385703}
+  - {fileID: 952740701}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6164,21 +6210,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f7342c8851e71d418ecc81580f11fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Destination: {x: 0, y: 0, z: 0}
+  Team: 1
+  Destination: {x: 50.5, y: 0, z: 15}
   LastPosition: {x: 0, y: 0, z: 0}
---- !u!135 &1791224941
-SphereCollider:
+--- !u!54 &259196818
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630238329164289248}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &630238329283496650
 GameObject:
   m_ObjectHideFlags: 0
@@ -6192,7 +6242,7 @@ GameObject:
   - component: {fileID: 630238329283496647}
   - component: {fileID: 630238329283496646}
   - component: {fileID: 630238329283496649}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Back Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7242,7 +7292,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1617
+  m_VersionIndex: 1638
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -7337,7 +7387,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 630238329382385703}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: TurretPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7373,7 +7423,7 @@ GameObject:
   - component: {fileID: 630238329806685368}
   - component: {fileID: 630238329806685371}
   - component: {fileID: 630238329806685370}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8424,7 +8474,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2793
+  m_VersionIndex: 2814
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -8523,7 +8573,7 @@ GameObject:
   - component: {fileID: 630238329870158580}
   - component: {fileID: 630238329870158583}
   - component: {fileID: 630238329870158582}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: TankBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8877,7 +8927,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5391
+  m_VersionIndex: 5412
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
