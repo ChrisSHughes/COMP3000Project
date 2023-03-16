@@ -73,4 +73,19 @@ public class TankController : MonoBehaviour
             }
         }
     }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Projectile"))
+        {
+            Debug.Log("Detected projectile");
+            ProjectileController projectile = collision.gameObject.GetComponent<ProjectileController>();
+            UnitHealthController health = GetComponent<UnitHealthController>();
+            if(health != null)
+            {
+                health.TakeDamage(projectile.Damage);
+            }
+            Destroy(collision.gameObject);
+        }
+    }
 }
