@@ -5,60 +5,39 @@ using UnityEngine;
 public class ProjectileController : MonoBehaviour
 {
 
-    /// <summary>
-    /// Standard, damage speed and target for projectile.
-    /// StartPos and EndPos are the start and end of the projectiles path retrospectively. 
-    /// control point is how hight the projectile will go before dipping back down.
-    /// duration is how long it takes to get from point a to point b. The shorter the time, the faster the bullet.
-    /// </summary>
     public int Damage;
-    public float speed;
+    public float Speed;
+    public float InitialForce;
+    public float RotationSpeed;
     public Transform target;
+    public int Team;
 
-    Vector3 startPosition;
-    Vector3 midPoint;
-    Vector3 controlPoint;  
-    Vector3 endPosition;
+    private Rigidbody rb;
 
-    GameObject midpoint;
 
-    float currentDuration;
-    float duration = 1.0f;
-
-    void Start()
+    private void Start()
     {
-        startPosition = this.transform.position;
-        midPoint = new Vector3((transform.position.x + target.position.x) / 2, (transform.position.y + target.position.y) / 2, (transform.position.z + target.position.z) / 2);
-        controlPoint = new Vector3(midPoint.x, midPoint.y + 0.5f, midPoint.z);
-        endPosition = target.position;
-
-        midpoint = Instantiate(GameObject.CreatePrimitive(PrimitiveType.Sphere), midPoint, Quaternion.identity);
-        midpoint.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-
+        rb = GetComponent<Rigidbody>();
+        Vector3 direction = (target.position - transform.position).normalized;
+        rb.AddForce(direction * InitialForce, ForceMode.Impulse);
     }
 
-
-    void Update()
+    private void Update()
     {
-        midPoint = new Vector3((transform.position.x + target.position.x) / 2, (transform.position.y + target.position.y) / 2, (transform.position.z + target.position.z) / 2);
-        midpoint.transform.position = midPoint;
-        endPosition = new Vector3(target.position.x, target.position.y + 0.2f, target.position.z);
-        this.transform.position = CalculateBezierPoint(currentDuration / duration, startPosition, endPosition, controlPoint);
+        Vector3 direction = (target.position - transform.position).normalized;
+        rb.AddForce(direction * Speed, ForceMode.Force);
 
-        transform.rotation = Quaternion.LookRotation(Vector3.forward);
-
-        currentDuration += Time.deltaTime;
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        rb.MoveRotation(Quaternion.Lerp(rb.rotation, targetRotation, RotationSpeed * Time.fixedDeltaTime));
     }
 
-    private Vector3 CalculateBezierPoint(float t, Vector3 startPosition, Vector3 endPosition, Vector3 controlPoint)
+    private void OnCollisionEnter(Collision collision)
     {
-        float u = 1 - t;
-        float uu = u * u;
-
-        Vector3 point = uu * startPosition;
-        point += 2 * u * t * controlPoint;
-        point += t * t * endPosition;
-
-        return point;
+        if (Team == collision.gameObject.GetComponent<TankController>().Team)
+        {
+            Debug.Log("Ignoreing collision between " + collision.gameObject.name + " and " + gameObject.name);
+            Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), gameObject.GetComponent<CapsuleCollider>());
+        }
     }
+
 }
