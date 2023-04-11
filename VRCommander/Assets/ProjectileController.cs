@@ -14,6 +14,8 @@ public class ProjectileController : MonoBehaviour
 
     private Rigidbody rb;
 
+    public float velocicty;
+
 
     private void Start()
     {
@@ -24,20 +26,48 @@ public class ProjectileController : MonoBehaviour
 
     private void Update()
     {
+        velocicty = rb.velocity.magnitude;
         Vector3 direction = (target.position - transform.position).normalized;
-        rb.AddForce(direction * Speed, ForceMode.Force);
+        rb.AddForce(direction * Speed, ForceMode.Acceleration);
 
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-        rb.MoveRotation(Quaternion.Lerp(rb.rotation, targetRotation, RotationSpeed * Time.fixedDeltaTime));
+        this.transform.rotation = Quaternion.LookRotation(rb.velocity, Vector3.up);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (Team == collision.gameObject.GetComponent<TankController>().Team)
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Unit"))
         {
-            Debug.Log("Ignoreing collision between " + collision.gameObject.name + " and " + gameObject.name);
-            Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), gameObject.GetComponent<CapsuleCollider>());
+            Debug.Log("detected unit collision");
+            TankController tankController = collision.gameObject.GetComponent<TankController>();
+            UnitHealthController healthController = collision.gameObject.GetComponent<UnitHealthController>();
+            if (Team != tankController.Team)
+            {
+                Debug.Log("Different team, taking damage");
+                healthController.TakeDamage(Damage);
+                ExplodShell();
+            }
+            else
+            {
+                Debug.Log("Same Team, Ignoring Collisions");
+                Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), gameObject.GetComponent<CapsuleCollider>());
+            }
         }
+        else if(collision.gameObject.layer == LayerMask.NameToLayer("Structure"))
+        {
+
+        }
+        else
+        {
+            ExplodShell();
+        }
+
+    }
+
+    private void ExplodShell()
+    {
+        // do animation for splosion
+
+        Destroy(this.gameObject);
     }
 
 }

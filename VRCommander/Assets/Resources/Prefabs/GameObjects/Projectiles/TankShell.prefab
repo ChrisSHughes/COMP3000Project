@@ -64,7 +64,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &4134568593058290777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,11 +77,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89194c5134d33ca4dbc7a2fbe68a35aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 45
   Speed: 2
-  InitialForce: 20
-  RotationSpeed: 15
+  InitialForce: 40
+  RotationSpeed: 30
   target: {fileID: 0}
+  Team: 0
+  velocicty: 0
 --- !u!1 &8395224207918394352
 GameObject:
   m_ObjectHideFlags: 0

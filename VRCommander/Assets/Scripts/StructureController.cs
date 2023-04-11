@@ -5,12 +5,10 @@ using UnityEngine;
 public class StructureController : MonoBehaviour
 {
     public Vector3 origin;
+    public Transform HitPoint;
     public int Team;
     public float sizex;
     public float sizez;
-
-    public int MaxHealth = 0;
-    public int Health = 0;
 
     public int TechLevelRequired;
     public int TechLevel;

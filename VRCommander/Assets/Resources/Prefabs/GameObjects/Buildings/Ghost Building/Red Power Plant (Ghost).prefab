@@ -49,8 +49,6 @@ MonoBehaviour:
   Team: 0
   sizex: 2
   sizez: 0
-  MaxHealth: 0
-  Health: 0
   TechLevelRequired: 0
   TechLevel: 0
   Repairing: 0

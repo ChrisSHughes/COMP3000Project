@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class TankController : MonoBehaviour
 {
     public int Team;
+    public Transform HitPoint;
 
     public Vector3 Destination;
     public Vector3 LastPosition;
@@ -76,7 +77,7 @@ public class TankController : MonoBehaviour
             TankController tank = other.gameObject.GetComponent<TankController>();
             if(tank.Team != this.Team)
             {
-                ShootProjectile(other.gameObject.transform, BulletSpawn);
+                ShootProjectile(tank.HitPoint, BulletSpawn);
                 Debug.Log("This unit is on team " + tank.Team);
                 return;
             }
@@ -93,25 +94,6 @@ public class TankController : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Projectile"))
-        {
-            Debug.Log("Detected projectile");
-            ProjectileController projectile = collision.gameObject.GetComponent<ProjectileController>();
-            UnitHealthController health = GetComponent<UnitHealthController>();
-            if (projectile.Team == Team)
-            {
-                Debug.Log("Ignoreing collision between " + collision.gameObject.name + " and " + gameObject.name);
-                Physics.IgnoreCollision(collision.gameObject.GetComponent<CapsuleCollider>(), gameObject.GetComponent<BoxCollider>());
-            }
-            else
-            {
-                if (health != null)
-                {
-                    health.TakeDamage(projectile.Damage);
-                }
-                Destroy(collision.gameObject);
-            }
-        }
 
     }
 
