@@ -8,6 +8,7 @@ public class TankController : MonoBehaviour
     public int Team;
     public Transform HitPoint;
 
+    public Vector3 CurrentTile;
     public Vector3 Destination;
     public Vector3 LastPosition;
     public GameObject BulletSpawn;
@@ -26,16 +27,30 @@ public class TankController : MonoBehaviour
         agent.destination = Destination;
         gotDestination = true;
         InvokeRepeating("UpdateDictionary", 0.1f, 0.3f);
+        InvokeRepeating("CheckDestination", 0.1f, 0.3f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (agent.isStopped == true)
+        if (agent.isStopped == false)
         {
-            CancelInvoke();
-            gotDestination = false;
+            if ((transform.position.x == Destination.x) && (transform.position.z == Destination.z))
+            {
+                Debug.Log("Stopped");
+                CancelInvoke();
+                agent.isStopped = true;
+                gotDestination = false;
+                return;
+            }
         }
+
+        //if (agent.isStopped == true)
+        //{
+        //    Debug.Log("Stopped");
+        //    CancelInvoke();
+        //    gotDestination = false;
+        //}
     }
 
     /// <summary>
@@ -50,24 +65,52 @@ public class TankController : MonoBehaviour
         if(gotDestination == false)
         {
             InvokeRepeating("UpdateDictionary", 0.1f, 0.3f);
+            InvokeRepeating("CheckDestination", 0.1f, 0.3f);
         }
         gotDestination = true;
     }
 
     public void UpdateDictionary()
     {
-        Vector3 currentTile = grid.GetNearestPointOnGrid(transform.position);
-        grid.dictCoords[currentTile] = gameObject;
+        CurrentTile = grid.GetNearestPointOnGrid(transform.position);
+        grid.dictCoords[CurrentTile] = gameObject;
 
         if(LastPosition != null)
         {
-            if(LastPosition != currentTile)
+            if(LastPosition != CurrentTile)
             {
                 grid.dictCoords[LastPosition] = null;
             }
         }
+        LastPosition = CurrentTile;
+    }
 
-        LastPosition = currentTile;
+    public void CheckDestination()
+    {
+        if (grid.dictCoords[Destination] == null)
+        {
+            return;
+        }
+        else
+        {
+            if (grid.dictCoords[Destination].GetComponent<TankController>())
+            {
+                if (Vector3.Distance(transform.position, Destination) < 1.0f)
+                {
+                    TankController tc = grid.dictCoords[Destination].GetComponent<TankController>();
+                    tc.BumpUnit();
+                }
+            }
+            else if (grid.dictCoords[Destination].GetComponent<StructureController>())
+            {
+                //make function to have unit find new space.
+            }
+        }
+    }
+
+    public void BumpUnit()
+    {
+        Debug.Log("unit bumped");
     }
 
     public void OnTriggerEnter(Collider other)
@@ -78,7 +121,6 @@ public class TankController : MonoBehaviour
             if(tank.Team != this.Team)
             {
                 ShootProjectile(tank.HitPoint, BulletSpawn);
-                Debug.Log("This unit is on team " + tank.Team);
                 return;
             }
         }
@@ -87,14 +129,10 @@ public class TankController : MonoBehaviour
             StructureController structure = other.gameObject.GetComponent<StructureController>();
             if (structure.Team != this.Team)
             {
-                Debug.Log("This structure is on team " + structure.Team);
+                ShootProjectile(structure.transform, BulletSpawn);
+                return;
             }
         }
-    }
-
-    public void OnCollisionEnter(Collision collision)
-    {
-
     }
 
     public void ShootProjectile(Transform target, GameObject spawner)

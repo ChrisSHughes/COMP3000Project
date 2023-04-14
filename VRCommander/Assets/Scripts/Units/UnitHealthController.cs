@@ -56,6 +56,7 @@ public class UnitHealthController : MonoBehaviour
 
     public void Die()
     {
+        Destroy(this.gameObject);
         // here we can do death animation stuff.
     }
 }

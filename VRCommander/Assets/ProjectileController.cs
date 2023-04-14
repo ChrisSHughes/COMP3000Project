@@ -30,7 +30,7 @@ public class ProjectileController : MonoBehaviour
         Vector3 direction = (target.position - transform.position).normalized;
         rb.AddForce(direction * Speed, ForceMode.Acceleration);
 
-        this.transform.rotation = Quaternion.LookRotation(rb.velocity, Vector3.up);
+        transform.rotation = Quaternion.LookRotation(rb.velocity, Vector3.up);
     }
 
     private void OnCollisionEnter(Collision collision)
