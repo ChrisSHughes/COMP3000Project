@@ -10,11 +10,12 @@ public class ProjectileController : MonoBehaviour
     public float InitialForce;
     public float RotationSpeed;
     public Transform target;
+    public GameObject Shooter;
     public int Team;
+    public float velocicty;
 
     private Rigidbody rb;
 
-    public float velocicty;
 
 
     private void Start()
@@ -37,24 +38,32 @@ public class ProjectileController : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Unit"))
         {
-            Debug.Log("detected unit collision");
             TankController tankController = collision.gameObject.GetComponent<TankController>();
-            UnitHealthController healthController = collision.gameObject.GetComponent<UnitHealthController>();
+            UnitHealthController tankHealthController = collision.gameObject.GetComponent<UnitHealthController>();
             if (Team != tankController.Team)
             {
-                Debug.Log("Different team, taking damage");
-                healthController.TakeDamage(Damage);
+                tankHealthController.TakeDamage(gameObject, Damage);
                 ExplodShell();
+                return;
             }
             else
             {
-                Debug.Log("Same Team, Ignoring Collisions");
                 Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), gameObject.GetComponent<CapsuleCollider>());
             }
         }
         else if(collision.gameObject.layer == LayerMask.NameToLayer("Structure"))
         {
-
+            StructureController structureController = collision.gameObject.GetComponent<StructureController>();
+            StructureHealthController structureHealthController = collision.gameObject.GetComponent<StructureHealthController>();
+            if (Team != structureController.Team)
+            {
+                structureHealthController.TakeDamage(gameObject, Damage);
+                ExplodShell();
+            }
+            else
+            {
+                Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), gameObject.GetComponent<CapsuleCollider>());
+            }
         }
         else
         {
@@ -66,8 +75,15 @@ public class ProjectileController : MonoBehaviour
     private void ExplodShell()
     {
         // do animation for splosion
-
+        Debug.Log("destroying shell");
         Destroy(this.gameObject);
+    }
+
+    public void ResetTarget()
+    {
+        Debug.Log("Resetting Target");
+        Shooter.GetComponent<TankController>().CanShoot = false;
+        Shooter.GetComponent<TankController>().target = null;
     }
 
 }

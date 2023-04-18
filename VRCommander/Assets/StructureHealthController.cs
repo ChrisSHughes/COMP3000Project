@@ -24,7 +24,7 @@ public class StructureHealthController : MonoBehaviour
     /// <summary>
     /// A function for calculating damage input and checking if a unit has died
     /// </summary>
-    public void TakeDamage(int damage)
+    public void TakeDamage(GameObject projectile , int damage)
     {
         CurrentHealth -= damage;
         UpdateUI();

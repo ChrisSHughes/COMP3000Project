@@ -1108,7 +1108,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1716
+  m_VersionIndex: 1794
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2259,7 +2259,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6740
+  m_VersionIndex: 6818
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3408,7 +3408,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1713
+  m_VersionIndex: 1791
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3742,7 +3742,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2733
+  m_VersionIndex: 2811
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4887,7 +4887,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1716
+  m_VersionIndex: 1794
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6036,7 +6036,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2025
+  m_VersionIndex: 2103
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6132,10 +6132,12 @@ GameObject:
   m_Component:
   - component: {fileID: 630238329164289249}
   - component: {fileID: 7120715738516016731}
+  - component: {fileID: 2800716005718412892}
   - component: {fileID: 7703941183098161289}
   - component: {fileID: 259196818}
   - component: {fileID: 696779039}
   - component: {fileID: 1272748712}
+  - component: {fileID: 1272748723}
   m_Layer: 9
   m_Name: BlueTank
   m_TagString: BlueUnit
@@ -6180,6 +6182,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.37423247, z: 1.44}
   m_Center: {x: 0, y: 0.31288376, z: 0}
+--- !u!65 &2800716005718412892
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630238329164289248}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5246506, y: 0.43537647, z: 0.5882988}
+  m_Center: {x: 0.005924225, y: 0.5923734, z: -0.16551208}
 --- !u!195 &7703941183098161289
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6232,11 +6247,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Team: 1
   HitPoint: {fileID: 7221105234947243055}
+  CurrentTile: {x: 0, y: 0, z: 0}
   Destination: {x: 51, y: 0, z: 15}
   LastPosition: {x: 0, y: 0, z: 0}
   BulletSpawn: {fileID: 2996957171935558395}
   Projectile: {fileID: 6272542810558516659, guid: f82c3ac3912a8b64fa583bfc03dd2d0b,
     type: 3}
+  target: {fileID: 0}
+  CanShoot: 0
+  damage: 30
+  shootingInterval: 1.3
 --- !u!114 &1272748712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6312,6 +6332,19 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
+--- !u!65 &1272748723
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630238329164289248}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.37423247, z: 1.44}
+  m_Center: {x: 0, y: 0.31288376, z: 0}
 --- !u!1 &630238329283496650
 GameObject:
   m_ObjectHideFlags: 0
@@ -7375,7 +7408,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1710
+  m_VersionIndex: 1788
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -8557,7 +8590,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2883
+  m_VersionIndex: 2961
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -9010,7 +9043,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5487
+  m_VersionIndex: 5565
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

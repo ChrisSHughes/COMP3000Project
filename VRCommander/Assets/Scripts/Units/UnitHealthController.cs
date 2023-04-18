@@ -11,6 +11,7 @@ public class UnitHealthController : MonoBehaviour
     public float MaxHealth;
     public float CurrentHealth;
 
+    public TankController tc;
     public Canvas UICanvas;
     public Image HealthBackground;
     public Image HealthForeground;
@@ -22,17 +23,19 @@ public class UnitHealthController : MonoBehaviour
     {
         CurrentHealth = MaxHealth;
         HealthForeground.fillAmount = CurrentHealth / MaxHealth;
+        tc = gameObject.GetComponent<TankController>();
     }
 
     /// <summary>
     /// A function for calculating damage input and checking if a unit has died
     /// </summary>
-    public void TakeDamage(int damage)
+    public void TakeDamage(GameObject projectile , int damage)
     {
         CurrentHealth -= damage;
         UpdateUI();
         if (CurrentHealth <= 0)
         {
+            projectile.GetComponent<ProjectileController>().ResetTarget();
             Die();
         }
     }

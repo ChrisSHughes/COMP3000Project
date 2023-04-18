@@ -14,6 +14,12 @@ public class TankController : MonoBehaviour
     public GameObject BulletSpawn;
     public GameObject Projectile;
 
+    [Header("Shooting stuff")]
+    public GameObject target;
+    public bool CanShoot;
+    public int damage;
+    public float shootingInterval;
+
     private bool gotDestination;
     private NavMeshAgent agent;
     private Grid grid;
@@ -45,12 +51,6 @@ public class TankController : MonoBehaviour
             }
         }
 
-        //if (agent.isStopped == true)
-        //{
-        //    Debug.Log("Stopped");
-        //    CancelInvoke();
-        //    gotDestination = false;
-        //}
     }
 
     /// <summary>
@@ -93,11 +93,12 @@ public class TankController : MonoBehaviour
         }
         else
         {
-            if (grid.dictCoords[Destination].GetComponent<TankController>())
+            if (Vector3.Distance(transform.position, Destination) < 1.0f)
             {
-                if (Vector3.Distance(transform.position, Destination) < 1.0f)
+                if ((grid.dictCoords[Destination].GetComponent<TankController>()) && (grid.dictCoords[Destination] != this.gameObject))
                 {
                     TankController tc = grid.dictCoords[Destination].GetComponent<TankController>();
+                    Debug.Log(this.gameObject.name + " is detecting " +  grid.dictCoords[Destination] + " object in dict at " + Destination);
                     tc.BumpUnit();
                 }
             }
@@ -115,35 +116,74 @@ public class TankController : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.GetComponent<TankController>())
+        if (target == null)
         {
-            TankController tank = other.gameObject.GetComponent<TankController>();
-            if(tank.Team != this.Team)
+            if (other.gameObject.GetComponent<TankController>())
             {
-                ShootProjectile(tank.HitPoint, BulletSpawn);
-                return;
+                TankController tank = other.gameObject.GetComponent<TankController>();
+                if (tank.Team != this.Team)
+                {
+                    target = other.gameObject;
+                    CanShoot = true;
+                    StartCoroutine(ShootProjectile(tank.HitPoint, BulletSpawn));
+                    return;
+                }
             }
-        }
-        else if (other.gameObject.GetComponent<StructureController>())
-        {
-            StructureController structure = other.gameObject.GetComponent<StructureController>();
-            if (structure.Team != this.Team)
+            else if (other.gameObject.GetComponent<StructureController>())
             {
-                ShootProjectile(structure.transform, BulletSpawn);
-                return;
+                StructureController structure = other.gameObject.GetComponent<StructureController>();
+                if (structure.Team != this.Team)
+                {
+                    target = other.gameObject;
+                    CanShoot = true;
+                    StartCoroutine(ShootProjectile(structure.HitPoint, BulletSpawn));
+                    return;
+                }
             }
         }
     }
 
-    public void ShootProjectile(Transform target, GameObject spawner)
+    private void OnTriggerExit(Collider other)
     {
-        GameObject projectile = Instantiate(Projectile);
-        ProjectileController pc = projectile.GetComponent<ProjectileController>();
-        projectile.transform.position = spawner.transform.position;
-        Vector3 direction = (target.position - transform.position).normalized;
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-        projectile.transform.rotation = targetRotation;
-        pc.target = target;
-        pc.Team = Team;
+        if(target.gameObject == other.gameObject)
+        {
+            target = null;
+            CanShoot = false;
+            StopCoroutine(ShootProjectile(null, null));
+        }
+    }
+
+    public IEnumerator ShootProjectile(Transform target, GameObject spawner)
+    {
+        Debug.Log("Shooting started");
+        while (CanShoot == true)
+        {
+            if (Vector3.Distance(transform.position, target.position) < 10)
+            {
+                GameObject projectile = Instantiate(Projectile);
+                ProjectileController pc = projectile.GetComponent<ProjectileController>();
+                projectile.transform.position = spawner.transform.position;
+                Vector3 direction = (target.position - transform.position).normalized;
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                projectile.transform.rotation = targetRotation;
+                pc.target = target;
+                pc.Team = Team;
+                pc.Shooter = gameObject;
+                pc.Damage = damage;
+                yield return new WaitForSeconds(shootingInterval);
+            }
+            else
+            {
+                yield return null;
+            }
+        }
+    }
+
+    public void OnDestroy()
+    {
+        Debug.Log("On Death: removing object from dictionary" + CurrentTile);
+        Debug.Log("On Death: object in dictionary before deletion: " + grid.dictCoords[CurrentTile]);
+        grid.dictCoords[CurrentTile] = null;
+        Debug.Log("On Death: object in dictionary after deletion: " + grid.dictCoords[CurrentTile]);
     }
 }
