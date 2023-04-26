@@ -6,8 +6,8 @@ public class UIController : MonoBehaviour
 {
     int locationInt = 1;
 
-    public BuildController buildController;
-    public UnitController unitController;
+    public PlayerBuildController buildController;
+    public PlayerUnitController unitController;
 
 
     private void Start()

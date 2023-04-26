@@ -6,8 +6,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameController : MonoBehaviour
 {
-    public UnitController unitController;
-    public BuildController buildContrller;
+    public PlayerUnitController unitController;
+    public PlayerBuildController buildContrller;
 
 
     public enum Controller
@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     public InputActionAsset inputAction;
     public InputAction trigger;
     public InputAction cancel;
+    public InputAction grip;
 
     private void Awake()
     {
@@ -27,24 +28,15 @@ public class GameController : MonoBehaviour
 
         cancel = inputAction.FindActionMap("XRI UI").FindAction("Cancel");
         trigger = inputAction.FindActionMap("XRI " + targetController.ToString() + " Interaction").FindAction("Activate");
+        grip = inputAction.FindActionMap("XRI" + targetController.ToString() + " Interaction").FindAction("Select");
         
         Debug.Log("Enabling buttons");
 
         cancel.Enable();
         trigger.Enable();
+        grip.Enable();
 
         unitController.enabled = true;
 
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -11,12 +11,12 @@ public class UnitHealthController : MonoBehaviour
     public float MaxHealth;
     public float CurrentHealth;
 
-    public TankController tc;
     public Canvas UICanvas;
     public Image HealthBackground;
     public Image HealthForeground;
     public Gradient ForegroundGradient;
     public Gradient BackgroundGradient;
+    private TankController tc;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +31,7 @@ public class UnitHealthController : MonoBehaviour
     /// </summary>
     public void TakeDamage(GameObject projectile , int damage)
     {
+        Debug.Log("dame done to tank " + damage);
         CurrentHealth -= damage;
         UpdateUI();
         if (CurrentHealth <= 0)

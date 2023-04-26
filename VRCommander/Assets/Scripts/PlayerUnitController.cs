@@ -5,7 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class UnitController : MonoBehaviour
+public class PlayerUnitController : MonoBehaviour
 {
     public enum Controller
     {
@@ -94,7 +94,7 @@ public class UnitController : MonoBehaviour
             }
         }
 
-        if (SelectedUnitsBool)
+        else if (SelectedUnitsBool)
         {
             if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hitGround))
             {
@@ -103,8 +103,29 @@ public class UnitController : MonoBehaviour
                     for (int i = 0; i < SelectedUnitsList.Count; i++)
                     {
                         Vector3 movePoint = grid.GetNearestPointOnGrid(hitGround.point);
-                        TankController controller = GetComponent<TankController>();
-                        controller.SetDestination(movePoint);
+                        TankController tankController = GetComponent<TankController>();
+                        tankController.SetDestination(movePoint);
+                    }
+                }
+
+                if(hitGround.collider.gameObject.layer == LayerMask.NameToLayer("Unit"))
+                {
+                    if(hitGround.collider.gameObject.tag == "BlueUnit")
+                    {
+                        SelectedUnitsList.Clear();
+                        SelectedUnitsList.Add(hitUnit.collider.gameObject);
+                        SelectedUnitsBool = true;
+                        return;
+                    }
+
+                    if(hitGround.collider.gameObject.tag == "RedUnit")
+                    {
+                        GameObject targetTank = hitGround.collider.gameObject;
+                        for (int i = 0; i < SelectedUnitsList.Count; i++)
+                        {
+                            TankController tankController = GetComponent<TankController>();
+
+                        }
                     }
                 }
             }

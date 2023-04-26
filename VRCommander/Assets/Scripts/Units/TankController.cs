@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class TankController : MonoBehaviour
 {
+    public int testnumber = 0;
+    public GameObject testobject;
+
     public int Team;
     public Transform HitPoint;
 
@@ -16,10 +19,13 @@ public class TankController : MonoBehaviour
 
     [Header("Shooting stuff")]
     public GameObject target;
+    public SphereCollider rangeFinder;
     public bool CanShoot;
     public int damage;
     public float shootingInterval;
 
+    public bool isChasing;
+    public bool moveTowards;
     private bool gotDestination;
     private NavMeshAgent agent;
     private Grid grid;
@@ -34,6 +40,13 @@ public class TankController : MonoBehaviour
         gotDestination = true;
         InvokeRepeating("UpdateDictionary", 0.1f, 0.3f);
         InvokeRepeating("CheckDestination", 0.1f, 0.3f);
+
+        if(testnumber == 1)
+        {
+            target = testobject;
+            agent.SetDestination(testobject.transform.position);
+            isChasing = true;
+        }
     }
 
     // Update is called once per frame
@@ -41,6 +54,11 @@ public class TankController : MonoBehaviour
     {
         if (agent.isStopped == false)
         {
+            if (moveTowards == true)
+            {
+                MoveTowardsTarget();
+            }
+
             if ((transform.position.x == Destination.x) && (transform.position.z == Destination.z))
             {
                 Debug.Log("Stopped");
@@ -114,8 +132,24 @@ public class TankController : MonoBehaviour
         Debug.Log("unit bumped");
     }
 
+    public void MoveTowardsTarget()
+    {
+            agent.SetDestination(grid.GetNearestPointOnGrid(target.transform.position - ((transform.position - target.transform.position).normalized * 3)));
+            Destination = new Vector3(agent.destination.x, 0f, agent.destination.z);
+    }
+
     public void OnTriggerEnter(Collider other)
     {
+        if ((isChasing == true) && (other.gameObject == target))
+        {
+            TankController tank = other.gameObject.GetComponent<TankController>();
+            agent.destination = grid.GetNearestPointOnGrid(transform.position);
+            Destination = new Vector3(agent.destination.x, 0, agent.destination.z);
+            CanShoot = true;
+            StartCoroutine(ShootProjectile(tank.HitPoint, BulletSpawn));
+            moveTowards = false;
+        }
+
         if (target == null)
         {
             if (other.gameObject.GetComponent<TankController>())
@@ -145,6 +179,7 @@ public class TankController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        // do chase related things
         if(target.gameObject == other.gameObject)
         {
             target = null;
@@ -158,8 +193,9 @@ public class TankController : MonoBehaviour
         Debug.Log("Shooting started");
         while (CanShoot == true)
         {
-            if (Vector3.Distance(transform.position, target.position) < 10)
+            if (Vector3.Distance(transform.position, target.position) <= rangeFinder.radius)
             {
+                Debug.Log("shoot");
                 GameObject projectile = Instantiate(Projectile);
                 ProjectileController pc = projectile.GetComponent<ProjectileController>();
                 projectile.transform.position = spawner.transform.position;

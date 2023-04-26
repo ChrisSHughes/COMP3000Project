@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class BuildController : MonoBehaviour
+public class PlayerBuildController : MonoBehaviour
 {
     public enum Controller
     {
@@ -29,7 +29,7 @@ public class BuildController : MonoBehaviour
 
     public StructureDatabase structureDatabase;
     public GameController gameController;
-    public UnitController unitController;
+    public PlayerUnitController unitController;
 
     // Start is called before the first frame update
     private void OnEnable()
@@ -57,6 +57,7 @@ public class BuildController : MonoBehaviour
     public void Back(InputAction.CallbackContext context)
     {
         Debug.Log("B pressed inside Building controller");
+        ChangeState();
     }
 
     #region Hovering call
@@ -103,18 +104,68 @@ public class BuildController : MonoBehaviour
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
                 {
                     PlaceStructureNear(hit.point);
-                    isBuilding = false;
-                    Destroy(ghostedSelectedBuilding);
-                    Debug.Log("disabling build controller");
-                    this.enabled = false;
-                    Debug.Log("enabling Unit controller");
-                    unitController.enabled = true;
+                    ChangeState();
                 }
             }
         }
     }
     #endregion
 
+
+
+    public bool CheckValid(Vector3 finalPos)
+    {
+        StructureController structCon = selectedBuilding.GetComponent<StructureController>();
+        bool valid = true;
+
+        for (int x = 0; x < structCon.sizex; x++)
+        {
+            for (int z = 0; z < structCon.sizez; z++)
+            {
+                bool coordsFound = false;
+
+                Vector3 tile = new Vector3(finalPos.x + x, finalPos.y, finalPos.z - z);
+
+                foreach (KeyValuePair<Vector3, GameObject> pair in grid.dictCoords)
+                {
+                    if (pair.Key.Equals(tile))
+                    {
+                        coordsFound = true;
+
+                        if (pair.Value != null)
+                        {
+                            valid = false;
+                            return valid;
+                        }
+                    }
+                }
+                if (!coordsFound)
+                {
+                    valid = false;
+                    return valid;
+                }
+            }
+        }
+        return valid;
+    }
+
+    public void SetBuilding(int building)
+    {
+        isBuilding = true;
+        Debug.Log("disabling unit controller");
+        unitController.enabled = false;
+        Debug.Log("enabling build controller");
+        this.enabled = true;
+
+        if(ghostedSelectedBuilding != null)
+        {
+            Destroy(ghostedSelectedBuilding);
+        }
+        selectedBuilding = structureDatabase.blueStructures[building].building;
+        ghostedSelectedBuilding = Instantiate(structureDatabase.ghostBlueStructures[building].building);
+        ghostedSelectedBuilding.transform.position = new Vector3(50, -8, 50);
+        ghostedSelectedBuildingMesh = ghostedSelectedBuilding.GetComponentsInChildren<MeshRenderer>();
+    }
 
     private void PlaceStructureNear(Vector3 hitPoint)
     {
@@ -154,44 +205,6 @@ public class BuildController : MonoBehaviour
         }
     }
 
-    public bool CheckValid(Vector3 finalPos)
-    {
-        StructureController structCon = selectedBuilding.GetComponent<StructureController>();
-        bool valid = true;
-
-        for (int x = 0; x < structCon.sizex; x++)
-        {
-            for (int z = 0; z < structCon.sizez; z++)
-            {
-                bool coordsFound = false;
-
-                Vector3 tile = new Vector3(finalPos.x + x, finalPos.y, finalPos.z - z);
-
-                foreach (KeyValuePair<Vector3, GameObject> pair in grid.dictCoords)
-                {
-                    if (pair.Key.Equals(tile))
-                    {
-                        coordsFound = true;
-
-                        if (pair.Value != null)
-                        {
-                            valid = false;
-                            return valid;
-                        }
-                    }
-                }
-                if (!coordsFound)
-                {
-                    valid = false;
-                    return valid;
-                }
-            }
-        }
-
-        return valid;
-    }
-
-
     private void ShowGhost(Vector3 hitpoint)
     {
         // shows the ghost if it is possible to build
@@ -212,21 +225,17 @@ public class BuildController : MonoBehaviour
     }
 
 
-    public void SetBuilding(int building)
-    {
-        isBuilding = true;
-        Debug.Log("disabling unit controller");
-        unitController.enabled = false;
-        Debug.Log("enabling build controller");
-        this.enabled = true;
 
-        if(ghostedSelectedBuilding != null)
+    private void ChangeState()
+    {
+        isBuilding = false;
+        if (ghostedSelectedBuilding != null)
         {
             Destroy(ghostedSelectedBuilding);
         }
-        selectedBuilding = structureDatabase.blueStructures[building].building;
-        ghostedSelectedBuilding = Instantiate(structureDatabase.ghostBlueStructures[building].building);
-        ghostedSelectedBuilding.transform.position = new Vector3(50, -8, 50);
-        ghostedSelectedBuildingMesh = ghostedSelectedBuilding.GetComponentsInChildren<MeshRenderer>();
+        Debug.Log("disabling build controller");
+        this.enabled = false;
+        Debug.Log("enabling Unit controller");
+        unitController.enabled = true;
     }
 }

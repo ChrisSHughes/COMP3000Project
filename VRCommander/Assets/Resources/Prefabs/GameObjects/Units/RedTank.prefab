@@ -2621,7 +2621,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1716
+  m_VersionIndex: 1719
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4196,7 +4196,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8033535265821681747}
   - component: {fileID: 365366157935669993}
-  - component: {fileID: 5475594943744653112}
   - component: {fileID: 5930394062607765317}
   - component: {fileID: 1762534510}
   - component: {fileID: 475334938}
@@ -4243,21 +4242,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.37423247, z: 1.44}
-  m_Center: {x: 0, y: 0.31288376, z: 0}
---- !u!65 &5475594943744653112
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8033535265821681746}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5246506, y: 0.43537647, z: 0.5882988}
-  m_Center: {x: 0.005924225, y: 0.5923734, z: -0.16551208}
+  m_Size: {x: 1, y: 0.65302765, z: 1.279253}
+  m_Center: {x: 0, y: 0.45228136, z: -0.04746723}
 --- !u!195 &5930394062607765317
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4334,6 +4320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 100
   CurrentHealth: 0
+  tc: {fileID: 0}
   UICanvas: {fileID: 6076017684475182746}
   HealthBackground: {fileID: 16914171762804623}
   HealthForeground: {fileID: 8478433089012763014}
@@ -6607,7 +6594,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1716
+  m_VersionIndex: 1719
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -8209,7 +8196,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5484
+  m_VersionIndex: 5490
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
