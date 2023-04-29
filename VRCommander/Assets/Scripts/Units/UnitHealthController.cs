@@ -7,23 +7,25 @@ using UnityEngine.UI;
 
 public class UnitHealthController : MonoBehaviour
 {
-
+    [Header("Health Components")]
     public float MaxHealth;
     public float CurrentHealth;
 
+    [Header("Required Components")]
     public Canvas UICanvas;
     public Image HealthBackground;
     public Image HealthForeground;
+
+    [Header("Gradient Components")]
     public Gradient ForegroundGradient;
     public Gradient BackgroundGradient;
-    private TankController tc;
 
-    // Start is called before the first frame update
+
+    // Start is called before the first frame update, gives initial values to stuff
     void Start()
     {
         CurrentHealth = MaxHealth;
         HealthForeground.fillAmount = CurrentHealth / MaxHealth;
-        tc = gameObject.GetComponent<TankController>();
     }
 
     /// <summary>
@@ -36,7 +38,6 @@ public class UnitHealthController : MonoBehaviour
         UpdateUI();
         if (CurrentHealth <= 0)
         {
-            projectile.GetComponent<ProjectileController>().ResetTarget();
             Die();
         }
     }

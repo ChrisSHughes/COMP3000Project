@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour
 
         cancel = inputAction.FindActionMap("XRI UI").FindAction("Cancel");
         trigger = inputAction.FindActionMap("XRI " + targetController.ToString() + " Interaction").FindAction("Activate");
-        grip = inputAction.FindActionMap("XRI" + targetController.ToString() + " Interaction").FindAction("Select");
+        grip = inputAction.FindActionMap("XRI " + targetController.ToString() + " Interaction").FindAction("Select");
         
         Debug.Log("Enabling buttons");
 

@@ -20,16 +20,17 @@ public class PlayerUnitController : MonoBehaviour
     public GameController gameController;
 
     public List<GameObject> SelectedUnitsList = new List<GameObject>();
-    public bool SelectedUnitsBool = false;
+    public bool UnitsSelected = false;
 
     public GameObject SelectedBuilding;
-    public bool SelectedBuildingBool;
+    public bool BuildingSelected;
 
     private void OnEnable()
     {
         Debug.Log("enabling Unit controller");
         gameController.trigger.performed += onSelect;
         gameController.cancel.performed += Back;
+        gameController.grip.performed += Grab;
     }
 
     private void OnDisable()
@@ -37,6 +38,7 @@ public class PlayerUnitController : MonoBehaviour
         Debug.Log("disabling Unit controller");
         gameController.trigger.performed -= onSelect;
         gameController.cancel.performed -= Back;
+        gameController.grip.performed -= Grab;
     }
 
     // Update is called once per frame
@@ -47,16 +49,16 @@ public class PlayerUnitController : MonoBehaviour
 
     public void Back(InputAction.CallbackContext context)
     {
-        if (SelectedUnitsBool)
+        if (UnitsSelected)
         {
-            SelectedUnitsBool = false;
+            UnitsSelected = false;
             SelectedUnitsList.Clear();
             Debug.Log("Cleared Unit List");
         }
 
-        if (SelectedBuildingBool)
+        if (BuildingSelected)
         {
-            SelectedBuildingBool = false;
+            BuildingSelected = false;
             SelectedBuilding = null;
             Debug.Log("Cleared Building List");
         }
@@ -82,19 +84,7 @@ public class PlayerUnitController : MonoBehaviour
 
     void onSelect(InputAction.CallbackContext context)
     {
-        if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hitUnit))
-        {
-            if (hitUnit.collider.gameObject.tag == "BlueUnit")
-            {
-                SelectedUnitsList.Clear();
-                SelectedUnitsList.Add(hitUnit.collider.gameObject);
-                SelectedUnitsBool = true;
-                Debug.Log("Unit Selected");
-                return;
-            }
-        }
-
-        else if (SelectedUnitsBool)
+        if (UnitsSelected)
         {
             if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hitGround))
             {
@@ -107,28 +97,33 @@ public class PlayerUnitController : MonoBehaviour
                         tankController.SetDestination(movePoint);
                     }
                 }
-
-                if(hitGround.collider.gameObject.layer == LayerMask.NameToLayer("Unit"))
+                if (hitGround.collider.gameObject.tag == "RedUnit")
                 {
-                    if(hitGround.collider.gameObject.tag == "BlueUnit")
+                    GameObject targetTank = hitGround.collider.gameObject;
+                    for (int i = 0; i < SelectedUnitsList.Count; i++)
                     {
-                        SelectedUnitsList.Clear();
-                        SelectedUnitsList.Add(hitUnit.collider.gameObject);
-                        SelectedUnitsBool = true;
-                        return;
-                    }
+                        TankController tankController = GetComponent<TankController>();
 
-                    if(hitGround.collider.gameObject.tag == "RedUnit")
-                    {
-                        GameObject targetTank = hitGround.collider.gameObject;
-                        for (int i = 0; i < SelectedUnitsList.Count; i++)
-                        {
-                            TankController tankController = GetComponent<TankController>();
-
-                        }
+                        // do targeting stuff
                     }
                 }
             }
         }
     }
+
+    void Grab(InputAction.CallbackContext context)
+    {
+        if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit raycastHit))
+        {
+            if (raycastHit.collider.gameObject.tag == "BlueUnit")
+            {
+                SelectedUnitsList.Clear();
+                SelectedUnitsList.Add(raycastHit.collider.gameObject);
+                UnitsSelected = true;
+                Debug.Log("Unit Selected");
+                return;
+            }
+        }
+    }
+
 }

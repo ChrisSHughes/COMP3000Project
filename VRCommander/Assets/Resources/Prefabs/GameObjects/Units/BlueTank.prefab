@@ -1108,7 +1108,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1797
+  m_VersionIndex: 1812
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2259,7 +2259,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6824
+  m_VersionIndex: 6839
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3408,7 +3408,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1794
+  m_VersionIndex: 1809
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3742,7 +3742,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2814
+  m_VersionIndex: 2829
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4887,7 +4887,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1797
+  m_VersionIndex: 1812
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6036,7 +6036,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2106
+  m_VersionIndex: 2121
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6230,6 +6230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f7342c8851e71d418ecc81580f11fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testnumber: 0
+  testobject: {fileID: 0}
   Team: 1
   HitPoint: {fileID: 7221105234947243055}
   CurrentTile: {x: 0, y: 0, z: 0}
@@ -6239,9 +6241,12 @@ MonoBehaviour:
   Projectile: {fileID: 6272542810558516659, guid: f82c3ac3912a8b64fa583bfc03dd2d0b,
     type: 3}
   target: {fileID: 0}
+  rangeFinder: {fileID: 952740702}
   CanShoot: 0
   damage: 30
   shootingInterval: 1.3
+  isChasing: 0
+  moveTowards: 0
 --- !u!114 &1272748712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6256,7 +6261,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 100
   CurrentHealth: 0
-  tc: {fileID: 0}
   UICanvas: {fileID: 8557026073308269582}
   HealthBackground: {fileID: 3499214152930382248}
   HealthForeground: {fileID: 7180221964707921486}
@@ -7381,7 +7385,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1791
+  m_VersionIndex: 1806
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -8563,7 +8567,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2964
+  m_VersionIndex: 2979
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -9016,7 +9020,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5574
+  m_VersionIndex: 5589
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

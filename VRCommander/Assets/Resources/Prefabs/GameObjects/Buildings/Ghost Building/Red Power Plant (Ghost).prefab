@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origin: {x: 0, y: 0, z: 0}
+  HitPoint: {fileID: 0}
   Team: 0
   sizex: 2
   sizez: 0
@@ -2181,7 +2182,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7535
+  m_VersionIndex: 7544
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4450,7 +4451,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9438
+  m_VersionIndex: 9444
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

@@ -9,23 +9,28 @@ public class TankController : MonoBehaviour
     public GameObject testobject;
 
     public int Team;
-    public Transform HitPoint;
 
-    public Vector3 CurrentTile;
-    public Vector3 Destination;
-    public Vector3 LastPosition;
+    [Header("Required Componants")]
+    public Transform HitPoint;
+    public SphereCollider rangeFinder;
     public GameObject BulletSpawn;
     public GameObject Projectile;
 
-    [Header("Shooting stuff")]
-    public GameObject target;
-    public SphereCollider rangeFinder;
-    public bool CanShoot;
-    public int damage;
-    public float shootingInterval;
 
+    [Header("Shooting/Attacking")]
+    public int damage;
+    public GameObject target;
+    public bool CanShoot;
     public bool isChasing;
     public bool moveTowards;
+    public float shootingInterval;
+
+    [Header("Positional Values")]
+    public Vector3 CurrentTile;
+    public Vector3 Destination;
+    public Vector3 LastPosition;
+
+
     private bool gotDestination;
     private NavMeshAgent agent;
     private Grid grid;
@@ -41,15 +46,12 @@ public class TankController : MonoBehaviour
         InvokeRepeating("UpdateDictionary", 0.1f, 0.3f);
         InvokeRepeating("CheckDestination", 0.1f, 0.3f);
 
-        if(testnumber == 1)
-        {
-            target = testobject;
-            agent.SetDestination(testobject.transform.position);
-            isChasing = true;
-        }
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// update will check if the unit needs to move towards a target. Also checks to see if a target has reached it's destination.
+    /// last check is to see if the unit has a target. If not, it will stop shooting and chasing.
+    /// </summary>
     void Update()
     {
         if (agent.isStopped == false)
@@ -69,6 +71,16 @@ public class TankController : MonoBehaviour
             }
         }
 
+        if (CanShoot == true && target == null)
+        {
+            Debug.Log("No target, stopping shooting, stopping chasing");
+            CanShoot = false;
+            target = null;
+            isChasing = false;
+            moveTowards = false;
+            StopCoroutine(ShootProjectile(null, null));
+            FindNewTarget();
+        }
     }
 
     /// <summary>
@@ -134,8 +146,8 @@ public class TankController : MonoBehaviour
 
     public void MoveTowardsTarget()
     {
-            agent.SetDestination(grid.GetNearestPointOnGrid(target.transform.position - ((transform.position - target.transform.position).normalized * 3)));
-            Destination = new Vector3(agent.destination.x, 0f, agent.destination.z);
+        agent.SetDestination(grid.GetNearestPointOnGrid(target.transform.position - ((transform.position - target.transform.position).normalized * 3)));
+        Destination = new Vector3(agent.destination.x, 0f, agent.destination.z);
     }
 
     public void OnTriggerEnter(Collider other)
@@ -148,6 +160,7 @@ public class TankController : MonoBehaviour
             CanShoot = true;
             StartCoroutine(ShootProjectile(tank.HitPoint, BulletSpawn));
             moveTowards = false;
+            return;
         }
 
         if (target == null)
@@ -177,14 +190,27 @@ public class TankController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// when an anemy leaves the range of a unit, if chasing is true, they will follow and chase the unit down.
+    /// if not, the unit is assumed to be defending, so they will jsut stop shooting at the target.
+    /// </summary>
+
     private void OnTriggerExit(Collider other)
     {
-        // do chase related things
+        if(isChasing == true && target.gameObject == other.gameObject)
+        {
+            CanShoot = false;
+            moveTowards = true;
+            StopCoroutine(ShootProjectile(null, null));
+            return;
+        }
+
         if(target.gameObject == other.gameObject)
         {
             target = null;
             CanShoot = false;
             StopCoroutine(ShootProjectile(null, null));
+            return;
         }
     }
 
@@ -196,16 +222,15 @@ public class TankController : MonoBehaviour
             if (Vector3.Distance(transform.position, target.position) <= rangeFinder.radius)
             {
                 Debug.Log("shoot");
-                GameObject projectile = Instantiate(Projectile);
-                ProjectileController pc = projectile.GetComponent<ProjectileController>();
-                projectile.transform.position = spawner.transform.position;
+                GameObject projectileGO = Instantiate(Projectile);
+                ProjectileController projectileController = projectileGO.GetComponent<ProjectileController>();
+                projectileGO.transform.position = spawner.transform.position;
                 Vector3 direction = (target.position - transform.position).normalized;
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
-                projectile.transform.rotation = targetRotation;
-                pc.target = target;
-                pc.Team = Team;
-                pc.Shooter = gameObject;
-                pc.Damage = damage;
+                projectileGO.transform.rotation = targetRotation;
+                projectileController.target = target;
+                projectileController.Team = Team;
+                projectileController.Damage = damage;
                 yield return new WaitForSeconds(shootingInterval);
             }
             else
@@ -213,6 +238,26 @@ public class TankController : MonoBehaviour
                 yield return null;
             }
         }
+    }
+
+    public void FindNewTarget()
+    {
+        agent.destination = grid.GetNearestPointOnGrid(new Vector3(transform.position.x, 0, transform.position.z));
+        isChasing = false;
+        moveTowards = false;
+
+        Debug.Log("finding new target");
+        // use sphere overlap to find objects and put them in temp array;
+        //compare distances
+        //closest gets set as target.
+
+        CanShoot = true;
+        //StartCoroutine(ShootProjectile(newTarget.HitPoint, BulletSpawn));
+
+
+        // if no suitable targets, return null
+        target = null;
+        CanShoot = false;
     }
 
     public void OnDestroy()

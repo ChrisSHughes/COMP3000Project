@@ -10,7 +10,6 @@ public class ProjectileController : MonoBehaviour
     public float InitialForce;
     public float RotationSpeed;
     public Transform target;
-    public GameObject Shooter;
     public int Team;
     public float velocicty;
 
@@ -69,21 +68,10 @@ public class ProjectileController : MonoBehaviour
         {
             ExplodShell();
         }
-
     }
 
     private void ExplodShell()
     {
-        // do animation for splosion
-        Debug.Log("destroying shell");
         Destroy(this.gameObject);
     }
-
-    public void ResetTarget()
-    {
-        Debug.Log("Resetting Target");
-        Shooter.GetComponent<TankController>().CanShoot = false;
-        Shooter.GetComponent<TankController>().target = null;
-    }
-
 }
