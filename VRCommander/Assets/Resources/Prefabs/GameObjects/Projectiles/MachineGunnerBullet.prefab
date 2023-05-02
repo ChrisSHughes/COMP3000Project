@@ -79,10 +79,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 3
   Speed: 4
-  InitialForce: 25
+  InitialForce: 20
   RotationSpeed: 50
   target: {fileID: 0}
-  Shooter: {fileID: 0}
   Team: 1
   velocicty: 0
 --- !u!1 &9065637204120460568

@@ -82,7 +82,6 @@ MonoBehaviour:
   InitialForce: 20
   RotationSpeed: 30
   target: {fileID: 0}
-  Shooter: {fileID: 0}
   Team: 0
   velocicty: 0
 --- !u!1 &8395224207918394352

@@ -41,7 +41,16 @@ public class TankController : MonoBehaviour
         grid = FindObjectOfType<Grid>();
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = true;
-        agent.destination = Destination;
+        if(Team == 1)
+        {
+            agent.destination = new Vector3(transform.position.x, 0, transform.position.z + 2);
+            Destination = new Vector3(agent.destination.x, 0, agent.destination.z);
+        }
+        if(Team == 2)
+        {
+            agent.destination = new Vector3(transform.position.x, 0, transform.position.z - 2);
+            Destination = new Vector3(agent.destination.x, 0, agent.destination.z);
+        }
         gotDestination = true;
         InvokeRepeating("UpdateDictionary", 0.1f, 0.3f);
         InvokeRepeating("CheckDestination", 0.1f, 0.3f);
@@ -197,31 +206,33 @@ public class TankController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(isChasing == true && target.gameObject == other.gameObject)
+        if (target != null)
         {
-            CanShoot = false;
-            moveTowards = true;
-            StopCoroutine(ShootProjectile(null, null));
-            return;
-        }
 
-        if(target.gameObject == other.gameObject)
-        {
-            target = null;
-            CanShoot = false;
-            StopCoroutine(ShootProjectile(null, null));
-            return;
+            if (isChasing == true && target.gameObject == other.gameObject)
+            {
+                CanShoot = false;
+                moveTowards = true;
+                StopCoroutine(ShootProjectile(null, null));
+                return;
+            }
+
+            if (target.gameObject == other.gameObject)
+            {
+                target = null;
+                CanShoot = false;
+                StopCoroutine(ShootProjectile(null, null));
+                return;
+            }
         }
     }
 
     public IEnumerator ShootProjectile(Transform target, GameObject spawner)
     {
-        Debug.Log("Shooting started");
         while (CanShoot == true)
         {
             if (Vector3.Distance(transform.position, target.position) <= rangeFinder.radius)
             {
-                Debug.Log("shoot");
                 GameObject projectileGO = Instantiate(Projectile);
                 ProjectileController projectileController = projectileGO.GetComponent<ProjectileController>();
                 projectileGO.transform.position = spawner.transform.position;

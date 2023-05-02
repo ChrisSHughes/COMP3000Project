@@ -24,13 +24,13 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Mapping buttons");
+        Debug.Log("GameController: Mapping buttons");
 
         cancel = inputAction.FindActionMap("XRI UI").FindAction("Cancel");
         trigger = inputAction.FindActionMap("XRI " + targetController.ToString() + " Interaction").FindAction("Activate");
         grip = inputAction.FindActionMap("XRI " + targetController.ToString() + " Interaction").FindAction("Select");
         
-        Debug.Log("Enabling buttons");
+        Debug.Log("GameController: Enabling buttons");
 
         cancel.Enable();
         trigger.Enable();

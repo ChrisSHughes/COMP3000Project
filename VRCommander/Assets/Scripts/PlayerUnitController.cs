@@ -54,6 +54,7 @@ public class PlayerUnitController : MonoBehaviour
             UnitsSelected = false;
             SelectedUnitsList.Clear();
             Debug.Log("Cleared Unit List");
+            return;
         }
 
         if (BuildingSelected)
@@ -103,8 +104,20 @@ public class PlayerUnitController : MonoBehaviour
                     for (int i = 0; i < SelectedUnitsList.Count; i++)
                     {
                         TankController tankController = GetComponent<TankController>();
-
-                        // do targeting stuff
+                        if(Vector3.Distance(tankController.gameObject.transform.position,targetTank.transform.position) <= tankController.rangeFinder.radius)
+                        {
+                            tankController.target = targetTank;
+                            tankController.moveTowards = false;
+                            tankController.CanShoot = true;
+                            StartCoroutine(tankController.ShootProjectile(targetTank.transform, tankController.BulletSpawn));
+                        }
+                        else
+                        {
+                            tankController.target = targetTank;
+                            tankController.moveTowards = true;
+                            tankController.isChasing = true;
+                            tankController.CanShoot = false;
+                        }
                     }
                 }
             }

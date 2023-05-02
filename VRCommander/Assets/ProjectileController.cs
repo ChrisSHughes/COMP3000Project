@@ -26,11 +26,14 @@ public class ProjectileController : MonoBehaviour
 
     private void Update()
     {
-        velocicty = rb.velocity.magnitude;
-        Vector3 direction = (target.position - transform.position).normalized;
-        rb.AddForce(direction * Speed, ForceMode.Acceleration);
+        if (target != null)
+        {
+            velocicty = rb.velocity.magnitude;
+            Vector3 direction = (target.position - transform.position).normalized;
+            rb.AddForce(direction * Speed, ForceMode.Acceleration);
+            transform.rotation = Quaternion.LookRotation(rb.velocity, Vector3.up);
+        }
 
-        transform.rotation = Quaternion.LookRotation(rb.velocity, Vector3.up);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -39,15 +42,16 @@ public class ProjectileController : MonoBehaviour
         {
             TankController tankController = collision.gameObject.GetComponent<TankController>();
             UnitHealthController tankHealthController = collision.gameObject.GetComponent<UnitHealthController>();
-            if (Team != tankController.Team)
+            if (Team == tankController.Team)
+            {
+                Debug.Log("Ignoring collision");
+                Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), gameObject.GetComponent<CapsuleCollider>());
+            }
+            else
             {
                 tankHealthController.TakeDamage(gameObject, Damage);
                 ExplodShell();
                 return;
-            }
-            else
-            {
-                Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), gameObject.GetComponent<CapsuleCollider>());
             }
         }
         else if(collision.gameObject.layer == LayerMask.NameToLayer("Structure"))
@@ -72,6 +76,7 @@ public class ProjectileController : MonoBehaviour
 
     private void ExplodShell()
     {
+        Debug.Log("killed: " + gameObject.name);
         Destroy(this.gameObject);
     }
 }

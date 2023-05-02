@@ -33,7 +33,6 @@ public class UnitHealthController : MonoBehaviour
     /// </summary>
     public void TakeDamage(GameObject projectile , int damage)
     {
-        Debug.Log("dame done to tank " + damage);
         CurrentHealth -= damage;
         UpdateUI();
         if (CurrentHealth <= 0)
