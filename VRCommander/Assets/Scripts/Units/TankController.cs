@@ -30,31 +30,34 @@ public class TankController : MonoBehaviour
     public Vector3 Destination;
     public Vector3 LastPosition;
 
-
     private bool gotDestination;
     private NavMeshAgent agent;
     private Grid grid;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         grid = FindObjectOfType<Grid>();
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = true;
-        if(Team == 1)
+        agent.isStopped = true;
+        gotDestination = false;
+        if (transform.gameObject.tag == "RedUnit")
         {
-            agent.destination = new Vector3(transform.position.x, 0, transform.position.z + 2);
-            Destination = new Vector3(agent.destination.x, 0, agent.destination.z);
+            agent.destination = Destination;
+            agent.isStopped = false;
+            gotDestination = true;
         }
-        if(Team == 2)
+
+        if(testnumber == 5)
         {
-            agent.destination = new Vector3(transform.position.x, 0, transform.position.z - 2);
-            Destination = new Vector3(agent.destination.x, 0, agent.destination.z);
+            agent.destination = Destination;
+            agent.isStopped = false;
+            gotDestination = true;
         }
-        gotDestination = true;
         InvokeRepeating("UpdateDictionary", 0.1f, 0.3f);
         InvokeRepeating("CheckDestination", 0.1f, 0.3f);
-
+        
     }
 
     /// <summary>
@@ -72,7 +75,6 @@ public class TankController : MonoBehaviour
 
             if ((transform.position.x == Destination.x) && (transform.position.z == Destination.z))
             {
-                Debug.Log("Stopped");
                 CancelInvoke();
                 agent.isStopped = true;
                 gotDestination = false;
@@ -80,9 +82,8 @@ public class TankController : MonoBehaviour
             }
         }
 
-        if (CanShoot == true && target == null)
+        if ((CanShoot == true || isChasing == true || moveTowards == true) && (target == null))
         {
-            Debug.Log("No target, stopping shooting, stopping chasing");
             CanShoot = false;
             target = null;
             isChasing = false;
@@ -100,13 +101,15 @@ public class TankController : MonoBehaviour
     {
         Destination = destination;
         agent.destination = Destination;
+        agent.isStopped = false;
 
-        if(gotDestination == false)
+        if (gotDestination == false)
         {
             InvokeRepeating("UpdateDictionary", 0.1f, 0.3f);
             InvokeRepeating("CheckDestination", 0.1f, 0.3f);
+            gotDestination = true;
         }
-        gotDestination = true;
+
     }
 
     public void UpdateDictionary()
@@ -114,9 +117,9 @@ public class TankController : MonoBehaviour
         CurrentTile = grid.GetNearestPointOnGrid(transform.position);
         grid.dictCoords[CurrentTile] = gameObject;
 
-        if(LastPosition != null)
+        if (LastPosition != null)
         {
-            if(LastPosition != CurrentTile)
+            if (LastPosition != CurrentTile)
             {
                 grid.dictCoords[LastPosition] = null;
             }
@@ -137,7 +140,7 @@ public class TankController : MonoBehaviour
                 if ((grid.dictCoords[Destination].GetComponent<TankController>()) && (grid.dictCoords[Destination] != this.gameObject))
                 {
                     TankController tc = grid.dictCoords[Destination].GetComponent<TankController>();
-                    Debug.Log(this.gameObject.name + " is detecting " +  grid.dictCoords[Destination] + " object in dict at " + Destination);
+                    //Debug.Log(this.gameObject.name + " is detecting " + grid.dictCoords[Destination] + " object in dict at " + Destination);
                     tc.BumpUnit();
                 }
             }
@@ -150,26 +153,51 @@ public class TankController : MonoBehaviour
 
     public void BumpUnit()
     {
-        Debug.Log("unit bumped");
+        //Debug.Log("unit bumped");
     }
 
     public void MoveTowardsTarget()
     {
-        agent.SetDestination(grid.GetNearestPointOnGrid(target.transform.position - ((transform.position - target.transform.position).normalized * 3)));
-        Destination = new Vector3(agent.destination.x, 0f, agent.destination.z);
+        if (target.GetComponent<TankController>())
+        {
+            agent.SetDestination(grid.GetNearestPointOnGrid(target.transform.position - ((transform.position - target.transform.position).normalized * 3)));
+            Destination = new Vector3(agent.destination.x, 0f, agent.destination.z);
+            return;
+        }
+
+        if (target.GetComponent<StructureController>())
+        {
+            agent.SetDestination(grid.GetNearestPointOnGrid(target.transform.position - ((transform.position - target.transform.position).normalized * 3)));
+            Destination = new Vector3(agent.destination.x, 0f, agent.destination.z);
+            return;
+        }
     }
 
     public void OnTriggerEnter(Collider other)
     {
         if ((isChasing == true) && (other.gameObject == target))
         {
-            TankController tank = other.gameObject.GetComponent<TankController>();
-            agent.destination = grid.GetNearestPointOnGrid(transform.position);
-            Destination = new Vector3(agent.destination.x, 0, agent.destination.z);
-            CanShoot = true;
-            StartCoroutine(ShootProjectile(tank.HitPoint, BulletSpawn));
-            moveTowards = false;
-            return;
+            if (other.gameObject.layer == LayerMask.NameToLayer("Unit"))
+            {
+                TankController tank = other.gameObject.GetComponent<TankController>();
+                agent.destination = grid.GetNearestPointOnGrid(transform.position);
+                Destination = new Vector3(agent.destination.x, 0, agent.destination.z);
+                CanShoot = true;
+                StartCoroutine(ShootProjectile(tank.HitPoint, BulletSpawn));
+                moveTowards = false;
+                return;
+            }
+
+            if (other.gameObject.layer == LayerMask.NameToLayer("Structure"))
+            {
+                StructureController structure = other.gameObject.GetComponent<StructureController>();
+                agent.destination = grid.GetNearestPointOnGrid(transform.position);
+                Destination = new Vector3(agent.destination.x, 0, agent.destination.z);
+                CanShoot = true;
+                StartCoroutine(ShootProjectile(structure.HitPoint, BulletSpawn));
+                moveTowards = false;
+                return;
+            }
         }
 
         if (target == null)
@@ -257,25 +285,38 @@ public class TankController : MonoBehaviour
         isChasing = false;
         moveTowards = false;
 
-        Debug.Log("finding new target");
-        // use sphere overlap to find objects and put them in temp array;
-        //compare distances
-        //closest gets set as target.
-
-        CanShoot = true;
-        //StartCoroutine(ShootProjectile(newTarget.HitPoint, BulletSpawn));
-
-
-        // if no suitable targets, return null
-        target = null;
-        CanShoot = false;
+        Collider[] colliders = Physics.OverlapSphere(transform.position, rangeFinder.radius);
+        float closestDistance = float.MaxValue;
+        foreach (Collider collider in colliders)
+        {
+            if (collider.gameObject.GetComponent<TankController>() && collider.gameObject.activeInHierarchy)
+            {
+                TankController tankController = collider.gameObject.GetComponent<TankController>();
+                if (tankController.Team != Team)
+                {
+                    float distance = Vector3.Distance(transform.position, collider.transform.position);
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        target = tankController.gameObject;
+                    }
+                }
+            }
+        }
+        if(target == null)
+        {
+            CanShoot = false;
+        }
+        else
+        {
+            CanShoot = true;
+            StartCoroutine(ShootProjectile(target.GetComponent<TankController>().HitPoint, BulletSpawn));
+        }
     }
 
-    public void OnDestroy()
-    {
-        Debug.Log("On Death: removing object from dictionary" + CurrentTile);
-        Debug.Log("On Death: object in dictionary before deletion: " + grid.dictCoords[CurrentTile]);
-        grid.dictCoords[CurrentTile] = null;
-        Debug.Log("On Death: object in dictionary after deletion: " + grid.dictCoords[CurrentTile]);
+        public void OnDestroy()
+        {
+            grid.dictCoords[CurrentTile] = null;
+        }
     }
-}
+

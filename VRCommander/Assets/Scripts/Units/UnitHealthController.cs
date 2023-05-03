@@ -26,6 +26,8 @@ public class UnitHealthController : MonoBehaviour
     {
         CurrentHealth = MaxHealth;
         HealthForeground.fillAmount = CurrentHealth / MaxHealth;
+
+        UICanvas.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -34,6 +36,7 @@ public class UnitHealthController : MonoBehaviour
     public void TakeDamage(GameObject projectile , int damage)
     {
         CurrentHealth -= damage;
+        UICanvas.gameObject.SetActive(true);
         UpdateUI();
         if (CurrentHealth <= 0)
         {
@@ -56,6 +59,14 @@ public class UnitHealthController : MonoBehaviour
         HealthForeground.fillAmount = CurrentHealth / MaxHealth;
         HealthForeground.color = ForegroundGradient.Evaluate(HealthForeground.fillAmount);
         HealthBackground.color = BackgroundGradient.Evaluate(HealthForeground.fillAmount);
+    }
+
+    public void ShowUI(bool Bool)
+    {
+        if(CurrentHealth == 100)
+        {
+            UICanvas.gameObject.SetActive(Bool);
+        }
     }
 
     public void Die()

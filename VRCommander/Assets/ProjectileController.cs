@@ -15,8 +15,6 @@ public class ProjectileController : MonoBehaviour
 
     private Rigidbody rb;
 
-
-
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -76,7 +74,6 @@ public class ProjectileController : MonoBehaviour
 
     private void ExplodShell()
     {
-        Debug.Log("killed: " + gameObject.name);
         Destroy(this.gameObject);
     }
 }

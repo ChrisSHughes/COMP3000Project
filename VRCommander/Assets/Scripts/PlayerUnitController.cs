@@ -45,14 +45,17 @@ public class PlayerUnitController : MonoBehaviour
     void Update()
     {
         OnHoverCall();
+
     }
 
     public void Back(InputAction.CallbackContext context)
     {
+        Debug.Log("Back pressed");
         if (UnitsSelected)
         {
-            UnitsSelected = false;
+            SelectedUnitsList[0].GetComponent<UnitHealthController>().ShowUI(false);
             SelectedUnitsList.Clear();
+            UnitsSelected = false;
             Debug.Log("Cleared Unit List");
             return;
         }
@@ -85,35 +88,66 @@ public class PlayerUnitController : MonoBehaviour
 
     void onSelect(InputAction.CallbackContext context)
     {
+        Debug.Log("Trigger Pressed");
+
         if (UnitsSelected)
         {
             if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hitGround))
             {
+                Debug.Log("RayCast Hit");
                 if (hitGround.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
                 {
+                    Debug.Log("Ground Hit");
                     for (int i = 0; i < SelectedUnitsList.Count; i++)
                     {
                         Vector3 movePoint = grid.GetNearestPointOnGrid(hitGround.point);
-                        TankController tankController = GetComponent<TankController>();
+                        TankController tankController = SelectedUnitsList[i].GetComponent<TankController>();
                         tankController.SetDestination(movePoint);
                     }
+                    return;
                 }
                 if (hitGround.collider.gameObject.tag == "RedUnit")
                 {
                     GameObject targetTank = hitGround.collider.gameObject;
+                    TankController targetTankController = hitGround.collider.gameObject.GetComponent<TankController>();
                     for (int i = 0; i < SelectedUnitsList.Count; i++)
                     {
-                        TankController tankController = GetComponent<TankController>();
-                        if(Vector3.Distance(tankController.gameObject.transform.position,targetTank.transform.position) <= tankController.rangeFinder.radius)
+                        TankController tankController = SelectedUnitsList[i].GetComponent<TankController>();
+                        if (Vector3.Distance(tankController.gameObject.transform.position, targetTank.transform.position) <= tankController.rangeFinder.radius)
                         {
                             tankController.target = targetTank;
                             tankController.moveTowards = false;
                             tankController.CanShoot = true;
-                            StartCoroutine(tankController.ShootProjectile(targetTank.transform, tankController.BulletSpawn));
+                            StartCoroutine(tankController.ShootProjectile(targetTankController.HitPoint, tankController.BulletSpawn));
                         }
                         else
                         {
                             tankController.target = targetTank;
+                            tankController.moveTowards = true;
+                            tankController.isChasing = true;
+                            tankController.CanShoot = false;
+                        }
+                    }
+                    return;
+                }
+                if (hitGround.collider.gameObject.tag == "RedStructure")
+                {
+                    GameObject targetStructure = hitGround.collider.gameObject;
+                    StructureController targetStructureController = hitGround.collider.gameObject.GetComponent<StructureController>();
+
+                    for (int i = 0; i < SelectedUnitsList.Count; i++)
+                    {
+                        TankController tankController = SelectedUnitsList[i].GetComponent<TankController>();
+                        if (Vector3.Distance(tankController.gameObject.transform.position, targetStructure.transform.position) <= tankController.rangeFinder.radius)
+                        {
+                            tankController.target = targetStructure;
+                            tankController.moveTowards = false;
+                            tankController.CanShoot = true;
+                            StartCoroutine(tankController.ShootProjectile(targetStructureController.HitPoint, tankController.BulletSpawn));
+                        }
+                        else
+                        {
+                            tankController.target = targetStructure;
                             tankController.moveTowards = true;
                             tankController.isChasing = true;
                             tankController.CanShoot = false;
@@ -126,17 +160,45 @@ public class PlayerUnitController : MonoBehaviour
 
     void Grab(InputAction.CallbackContext context)
     {
-        if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit raycastHit))
+        Debug.Log("Grab Pressed");
+        if (UnitsSelected == true)
         {
-            if (raycastHit.collider.gameObject.tag == "BlueUnit")
+            if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit HitCheck1))
+            {
+                if (HitCheck1.collider.gameObject.tag == "Ground")
+                {
+                    SelectedUnitsList[0].GetComponent<UnitHealthController>().ShowUI(false);
+                    SelectedUnitsList.Clear();
+                    return;
+                }
+
+                if (HitCheck1.collider.gameObject.tag == "BlueUnit")
+                {
+                    if(SelectedUnitsList != null)
+                    {
+                        SelectedUnitsList[0].GetComponent<UnitHealthController>().ShowUI(false);
+                    }
+
+                    SelectedUnitsList.Clear();
+                    SelectedUnitsList.Add(HitCheck1.collider.gameObject);
+                    UnitsSelected = true;
+                    SelectedUnitsList[0].GetComponent<UnitHealthController>().ShowUI(true);
+                    return;
+                }
+            }
+        }
+
+        if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit HitCheck2))
+        {
+            if (HitCheck2.collider.gameObject.tag == "BlueUnit")
             {
                 SelectedUnitsList.Clear();
-                SelectedUnitsList.Add(raycastHit.collider.gameObject);
+                SelectedUnitsList.Add(HitCheck2.collider.gameObject);
                 UnitsSelected = true;
+                SelectedUnitsList[0].GetComponent<UnitHealthController>().ShowUI(true);
                 Debug.Log("Unit Selected");
                 return;
             }
         }
     }
-
 }

@@ -43,7 +43,7 @@ public class UIController : MonoBehaviour
     {
         GameObject tank = Instantiate(Resources.Load<GameObject>("Prefabs/GameObjects/Units/BlueTank"));
         tank.transform.position = new Vector3(locationInt, 0, 1);
-        tank.tag = "Unit";
+        tank.tag = "BlueUnit";
         locationInt++;
     }
 
@@ -51,6 +51,7 @@ public class UIController : MonoBehaviour
     {
         GameObject tank = Instantiate(Resources.Load<GameObject>("Prefabs/GameObjects/Units/BlueMachineGunner"));
         tank.transform.position = new Vector3(locationInt, 0, 1);
+        tank.tag = "BlueUnit";
         locationInt++;
     }
 }
