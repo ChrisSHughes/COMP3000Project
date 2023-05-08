@@ -42,7 +42,6 @@ public class ProjectileController : MonoBehaviour
             UnitHealthController tankHealthController = collision.gameObject.GetComponent<UnitHealthController>();
             if (Team == tankController.Team)
             {
-                Debug.Log("Ignoring collision");
                 Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), gameObject.GetComponent<CapsuleCollider>());
             }
             else
@@ -52,6 +51,7 @@ public class ProjectileController : MonoBehaviour
                 return;
             }
         }
+
         else if(collision.gameObject.layer == LayerMask.NameToLayer("Structure"))
         {
             StructureController structureController = collision.gameObject.GetComponent<StructureController>();

@@ -20,14 +20,30 @@ public class UnitHealthController : MonoBehaviour
     public Gradient ForegroundGradient;
     public Gradient BackgroundGradient;
 
+    private Transform Player;
+    private float rotationSpeed = 360f;
+
 
     // Start is called before the first frame update, gives initial values to stuff
     void Start()
     {
         CurrentHealth = MaxHealth;
         HealthForeground.fillAmount = CurrentHealth / MaxHealth;
-
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
         UICanvas.gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        // Calculate the direction to the player
+        Vector3 direction = Player.position - UICanvas.transform.position;
+
+        // Calculate the rotation to face the player
+        Quaternion rotation = Quaternion.LookRotation(direction);
+
+        // Rotate the UI element towards the player
+        UICanvas.transform.rotation = Quaternion.RotateTowards(UICanvas.transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+
     }
 
     /// <summary>

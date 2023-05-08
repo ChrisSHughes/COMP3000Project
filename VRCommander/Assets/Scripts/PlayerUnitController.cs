@@ -7,12 +7,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class PlayerUnitController : MonoBehaviour
 {
-    public enum Controller
-    {
-        RightHand
-    }
-
-    public Controller targetController;
 
     public Grid grid;
     public XRRayInteractor rayInteractor;
@@ -94,10 +88,8 @@ public class PlayerUnitController : MonoBehaviour
         {
             if (rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hitGround))
             {
-                Debug.Log("RayCast Hit");
                 if (hitGround.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
                 {
-                    Debug.Log("Ground Hit");
                     for (int i = 0; i < SelectedUnitsList.Count; i++)
                     {
                         Vector3 movePoint = grid.GetNearestPointOnGrid(hitGround.point);
@@ -140,6 +132,7 @@ public class PlayerUnitController : MonoBehaviour
                         TankController tankController = SelectedUnitsList[i].GetComponent<TankController>();
                         if (Vector3.Distance(tankController.gameObject.transform.position, targetStructure.transform.position) <= tankController.rangeFinder.radius)
                         {
+                            Debug.Log("no need to move towards structure");
                             tankController.target = targetStructure;
                             tankController.moveTowards = false;
                             tankController.CanShoot = true;
@@ -147,6 +140,7 @@ public class PlayerUnitController : MonoBehaviour
                         }
                         else
                         {
+                            Debug.Log("move towards structure");
                             tankController.target = targetStructure;
                             tankController.moveTowards = true;
                             tankController.isChasing = true;
@@ -167,18 +161,21 @@ public class PlayerUnitController : MonoBehaviour
             {
                 if (HitCheck1.collider.gameObject.tag == "Ground")
                 {
-                    SelectedUnitsList[0].GetComponent<UnitHealthController>().ShowUI(false);
+                    if (SelectedUnitsList[0] != null)
+                    {
+                        SelectedUnitsList[0].GetComponent<UnitHealthController>().ShowUI(false);
+                    }
                     SelectedUnitsList.Clear();
+                    UnitsSelected = false;
                     return;
                 }
 
                 if (HitCheck1.collider.gameObject.tag == "BlueUnit")
                 {
-                    if(SelectedUnitsList != null)
+                    if(SelectedUnitsList[0] != null)
                     {
                         SelectedUnitsList[0].GetComponent<UnitHealthController>().ShowUI(false);
                     }
-
                     SelectedUnitsList.Clear();
                     SelectedUnitsList.Add(HitCheck1.collider.gameObject);
                     UnitsSelected = true;

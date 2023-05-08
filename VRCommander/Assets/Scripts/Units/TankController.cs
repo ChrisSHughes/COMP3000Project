@@ -68,7 +68,7 @@ public class TankController : MonoBehaviour
     {
         if (agent.isStopped == false)
         {
-            if (moveTowards == true)
+            if (moveTowards == true && target != null)
             {
                 MoveTowardsTarget();
             }
@@ -158,19 +158,19 @@ public class TankController : MonoBehaviour
 
     public void MoveTowardsTarget()
     {
-        if (target.GetComponent<TankController>())
-        {
-            agent.SetDestination(grid.GetNearestPointOnGrid(target.transform.position - ((transform.position - target.transform.position).normalized * 3)));
-            Destination = new Vector3(agent.destination.x, 0f, agent.destination.z);
-            return;
-        }
+            if (target.GetComponent<TankController>())
+            {
+                agent.SetDestination(grid.GetNearestPointOnGrid(target.transform.position - ((transform.position - target.transform.position).normalized * 3)));
+                Destination = new Vector3(agent.destination.x, 0f, agent.destination.z);
+                return;
+            }
 
-        if (target.GetComponent<StructureController>())
-        {
-            agent.SetDestination(grid.GetNearestPointOnGrid(target.transform.position - ((transform.position - target.transform.position).normalized * 3)));
-            Destination = new Vector3(agent.destination.x, 0f, agent.destination.z);
-            return;
-        }
+            if (target.GetComponent<StructureController>())
+            {
+                agent.SetDestination(grid.GetNearestPointOnGrid(target.transform.position - ((transform.position - target.transform.position).normalized * 3)));
+                Destination = new Vector3(agent.destination.x, 0f, agent.destination.z);
+                return;
+            }
     }
 
     public void OnTriggerEnter(Collider other)
