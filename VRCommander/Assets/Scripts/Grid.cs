@@ -26,8 +26,7 @@ public class Grid : MonoBehaviour
         int yCount = Mathf.RoundToInt(position.y / size);
         int zCount = Mathf.RoundToInt(position.z / size);
 
-        Vector3 result = new Vector3((float)xCount * size, (float)yCount * size, (float)zCount * size);
-
+        Vector3 result = new Vector3((float)xCount * size, 0 , (float)zCount * size);
         result += transform.position;
         return result ;
     }

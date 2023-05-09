@@ -10,13 +10,10 @@ public class ProjectileController : MonoBehaviour
     public float InitialForce;
     public float RotationSpeed;
     public Transform target;
-    public GameObject Shooter;
     public int Team;
     public float velocicty;
 
     private Rigidbody rb;
-
-
 
     private void Start()
     {
@@ -27,11 +24,14 @@ public class ProjectileController : MonoBehaviour
 
     private void Update()
     {
-        velocicty = rb.velocity.magnitude;
-        Vector3 direction = (target.position - transform.position).normalized;
-        rb.AddForce(direction * Speed, ForceMode.Acceleration);
+        if (target != null)
+        {
+            velocicty = rb.velocity.magnitude;
+            Vector3 direction = (target.position - transform.position).normalized;
+            rb.AddForce(direction * Speed, ForceMode.Acceleration);
+            transform.rotation = Quaternion.LookRotation(rb.velocity, Vector3.up);
+        }
 
-        transform.rotation = Quaternion.LookRotation(rb.velocity, Vector3.up);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -40,17 +40,18 @@ public class ProjectileController : MonoBehaviour
         {
             TankController tankController = collision.gameObject.GetComponent<TankController>();
             UnitHealthController tankHealthController = collision.gameObject.GetComponent<UnitHealthController>();
-            if (Team != tankController.Team)
+            if (Team == tankController.Team)
+            {
+                Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), gameObject.GetComponent<CapsuleCollider>());
+            }
+            else
             {
                 tankHealthController.TakeDamage(gameObject, Damage);
                 ExplodShell();
                 return;
             }
-            else
-            {
-                Physics.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider>(), gameObject.GetComponent<CapsuleCollider>());
-            }
         }
+
         else if(collision.gameObject.layer == LayerMask.NameToLayer("Structure"))
         {
             StructureController structureController = collision.gameObject.GetComponent<StructureController>();
@@ -69,21 +70,10 @@ public class ProjectileController : MonoBehaviour
         {
             ExplodShell();
         }
-
     }
 
     private void ExplodShell()
     {
-        // do animation for splosion
-        Debug.Log("destroying shell");
         Destroy(this.gameObject);
     }
-
-    public void ResetTarget()
-    {
-        Debug.Log("Resetting Target");
-        Shooter.GetComponent<TankController>().CanShoot = false;
-        Shooter.GetComponent<TankController>().target = null;
-    }
-
 }

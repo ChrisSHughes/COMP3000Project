@@ -6,14 +6,13 @@ public class UIController : MonoBehaviour
 {
     int locationInt = 1;
 
-    public BuildController buildController;
-    public UnitController unitController;
+    public PlayerBuildController buildController;
+    public PlayerUnitController unitController;
 
 
     private void Start()
     {
-        TrainTank();
-        TrainMachineGunner();
+
     }
 
     public void SetConstructionYard()
@@ -42,18 +41,17 @@ public class UIController : MonoBehaviour
 
     public void TrainTank()
     {
-        //ToggleController();
         GameObject tank = Instantiate(Resources.Load<GameObject>("Prefabs/GameObjects/Units/BlueTank"));
         tank.transform.position = new Vector3(locationInt, 0, 1);
-        tank.tag = "Unit";
+        tank.tag = "BlueUnit";
         locationInt++;
     }
 
     public void TrainMachineGunner()
     {
-        //ToggleController();
         GameObject tank = Instantiate(Resources.Load<GameObject>("Prefabs/GameObjects/Units/BlueMachineGunner"));
         tank.transform.position = new Vector3(locationInt, 0, 1);
+        tank.tag = "BlueUnit";
         locationInt++;
     }
 }

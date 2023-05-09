@@ -24,13 +24,13 @@ public class StructureDatabase : MonoBehaviour
         Debug.Log("Red Structure List");
         for (int i = 0; i < blueStructures.Count; i++)
         {
-            Debug.Log("Building index: " + redStructures[i].id + " , " + redStructures[i].name + " , " + redStructures[i].building);
+            //Debug.Log("Building index: " + redStructures[i].id + " , " + redStructures[i].name + " , " + redStructures[i].building);
         }
         
         Debug.Log("Blue Structure List");
         for (int i = 0; i < blueStructures.Count; i++)
         {
-            Debug.Log("Building index: " + blueStructures[i].id + " , " + blueStructures[i].name + " , " + blueStructures[i].building);
+            //Debug.Log("Building index: " + blueStructures[i].id + " , " + blueStructures[i].name + " , " + blueStructures[i].building);
         }
 
 

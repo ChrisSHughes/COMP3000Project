@@ -7,23 +7,43 @@ using UnityEngine.UI;
 
 public class UnitHealthController : MonoBehaviour
 {
-
+    [Header("Health Components")]
     public float MaxHealth;
     public float CurrentHealth;
 
-    public TankController tc;
+    [Header("Required Components")]
     public Canvas UICanvas;
     public Image HealthBackground;
     public Image HealthForeground;
+
+    [Header("Gradient Components")]
     public Gradient ForegroundGradient;
     public Gradient BackgroundGradient;
 
-    // Start is called before the first frame update
+    private Transform Player;
+    private float rotationSpeed = 360f;
+
+
+    // Start is called before the first frame update, gives initial values to stuff
     void Start()
     {
         CurrentHealth = MaxHealth;
         HealthForeground.fillAmount = CurrentHealth / MaxHealth;
-        tc = gameObject.GetComponent<TankController>();
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
+        UICanvas.gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        // Calculate the direction to the player
+        Vector3 direction = Player.position - UICanvas.transform.position;
+
+        // Calculate the rotation to face the player
+        Quaternion rotation = Quaternion.LookRotation(direction);
+
+        // Rotate the UI element towards the player
+        UICanvas.transform.rotation = Quaternion.RotateTowards(UICanvas.transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+
     }
 
     /// <summary>
@@ -32,10 +52,10 @@ public class UnitHealthController : MonoBehaviour
     public void TakeDamage(GameObject projectile , int damage)
     {
         CurrentHealth -= damage;
+        UICanvas.gameObject.SetActive(true);
         UpdateUI();
         if (CurrentHealth <= 0)
         {
-            projectile.GetComponent<ProjectileController>().ResetTarget();
             Die();
         }
     }
@@ -55,6 +75,14 @@ public class UnitHealthController : MonoBehaviour
         HealthForeground.fillAmount = CurrentHealth / MaxHealth;
         HealthForeground.color = ForegroundGradient.Evaluate(HealthForeground.fillAmount);
         HealthBackground.color = BackgroundGradient.Evaluate(HealthForeground.fillAmount);
+    }
+
+    public void ShowUI(bool Bool)
+    {
+        if(CurrentHealth == 100)
+        {
+            UICanvas.gameObject.SetActive(Bool);
+        }
     }
 
     public void Die()
